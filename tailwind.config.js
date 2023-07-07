@@ -13,13 +13,29 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       animation: {
-        marquee: 'marquee 25s linear infinite',
+        marquee: 'marquee 45s linear infinite',
       },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' },
         },
+      },
+      colors: {
+        primary: `var(--primary)`,
+        secondary: `var(--secondary)`,
+        orange: `var(--orange)`,
+        lightgray: `var(--lightgray)`,
+        pure: `var(--pure)`,
+        darkgray: `var(--darkgray)`,
+        blue: `var(--blue)`,
+      },
+      fontFamily: {
+        'anton': `var(--anton)`,
+      },
+      fontFamily: {
+        'anton': `var(--anton)`,
+        'metapro': `var(--metapro)`,
       },
     },
   },

@@ -1,0 +1,74 @@
+// imports
+@import "./_variables.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+     font-family: Anton;
+     src: url('../../public/fonts/Anton-Regular.ttf');
+     font-weight: 700;
+}
+@font-face {
+     font-family: metapro;
+     src: url('../../public/fonts/FFMetaProBold.TTF');
+     font-weight: 700;
+}
+@font-face {
+     font-family: metapro;
+     src: url('../../public/fonts/FFMetaProBook.TTF');
+     font-weight: 500;
+}
+@font-face {
+     font-family: metapro;
+     src: url('../../public/fonts/FFMetaProCondBd.TTF');
+     font-weight: 600;
+}
+@font-face {
+     font-family: metapro;
+     src: url('../../public/fonts/FFMetaProCondRg.TTF');
+     font-weight: 400;
+}
+@font-face {
+     font-family: metapro;
+     src: url('../../public/fonts/FFMetaProLight.TTF');
+     font-weight: 300;
+}
+
+body{
+     overflow-x: hidden;
+}
+
+//slick slider custom dots 
+.slick-dots{
+    bottom: 2rem !important;
+    left: 7% !important;
+    display: flex;
+    
+}
+.sliceslider .slick-slide img{
+     padding: 12px;
+}
+
+.slick-disabled {
+     display: none;
+   }
+   
+.slick-dots{
+     li{
+          width: 40px !important;
+          height: 5px !important;
+          button:before{
+               background: var(--pure);
+               content:"" !important;
+               width: 40px !important;
+               height: 5px !important;
+          }
+     }
+     .slick-active{
+          button:before{
+               background: var(--secondary);
+          }
+     }
+}
