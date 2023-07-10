@@ -28,7 +28,7 @@ const Main = () => {
           })
         }
       </Slider>
-      <section className='sliceslider w-[600px] 2xl:w-[800px] absolute bottom-4 2xl:bottom-10 right-0'>
+      <section className='sliceslider w-[600px] 2xl:w-[800px] absolute bottom-5 2xl:bottom-10 right-0'>
         <Slider {...SliderSlice}>
           {
             [1, 2, 3, 4,5,6].map((item, idx) => {
@@ -62,10 +62,12 @@ const settings = {
 const SliderSlice = {
   dots: false,
   infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      speed: 6000,
-      autoplaySpeed: 0,
-      cssEase: "linear"
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  speed: 6000,
+  autoplaySpeed: 0,
+  cssEase: "linear",
+  arrows: false,
+
 };

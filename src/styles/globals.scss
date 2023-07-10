@@ -42,10 +42,7 @@ body{
 
 //slick slider custom dots 
 .slick-dots{
-    bottom: 2rem !important;
-    left: 7% !important;
-    display: flex;
-    
+    bottom: .5rem !important;
 }
 .sliceslider .slick-slide img{
      padding: 12px;
@@ -71,4 +68,13 @@ body{
                background: var(--secondary);
           }
      }
+}
+
+@media (min-width:768px) {
+     .slick-dots{
+          bottom: 2rem !important;
+          left: 7% !important;
+          display: inline-flex;
+           width: auto !important;
+      }
 }
