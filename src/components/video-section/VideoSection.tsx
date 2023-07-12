@@ -15,7 +15,7 @@ const VideoSection = () => {
                <div className='container mx-auto px-4'>
                     {/* heading  */}
                     <div className='flex justify-between text-white items-center mb-5 pb-5'>
-                         <h2 className='font-metapro text-5xl font-bold'>VIDEOS</h2>
+                         <h2 className='font-metapro text-3xl md:text-5xl font-bold'>VIDEOS</h2>
                          <Link href="#" className='uppercase flex hover:text-orange items-center space-x-2 font-metapro text-xl tracking-widest font-semibold'>
                               <span>View All</span>
                               <HiOutlineArrowRight />

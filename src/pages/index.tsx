@@ -7,53 +7,184 @@ import CategoryCard from '@/components/category-card/CategoryCard'
 import ScholarCard from '@/components/scholar-card/ScholarCard'
 import DonateNow from '@/components/donateNow/DonateNow'
 import VideoSection from '@/components/video-section/VideoSection'
+import { useState } from 'react'
+import { PiPlay } from 'react-icons/pi'
+import VideoPlayer from '@/components/video-player/VideoPlayer'
+import {getVideoCode} from '../utils'
+import { SettingsContext } from '@/context/setting-context'
+import React, { useContext } from 'react'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
     <>
-      <Main/>
+      <Main />
+      <TabsSection />
+      <PaighamChannelPresents />
       {/* Categories section  */}
       <section className='container mx-auto mb-28 px-4'>
         {/* heading  */}
         <div className='flex justify-between items-center mt-20 mb-10 border-b-[3px] border-darkgray pb-5'>
-          <h2 className='font-metapro text-5xl text-darkgray font-bold'>Categories</h2>
+          <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold'>Categories</h2>
           <Link href="#" className='uppercase flex hover:text-orange items-center space-x-2 font-metapro text-xl tracking-widest font-semibold'>
             <span>View All</span>
-            <HiOutlineArrowRight/>
+            <HiOutlineArrowRight />
           </Link>
         </div>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
           {
-            [1,2,3,4].map((item,idx)=>(
-              <CategoryCard key={idx}/>
+            [1, 2, 3, 4].map((item, idx) => (
+              <CategoryCard key={idx} />
             ))
           }
         </div>
       </section>
       {/* videos section  */}
-      <VideoSection/>
+      <VideoSection />
       {/* Scholar section  */}
       <section className='container mx-auto mb-28 px-4'>
         {/* heading  */}
         <div className='flex justify-between items-center mt-20 mb-10 border-b-[3px] border-darkgray pb-5'>
-          <h2 className='font-metapro text-5xl text-darkgray font-bold'>Scholar</h2>
+          <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold'>Scholar</h2>
           <Link href="#" className='uppercase flex hover:text-orange items-center space-x-2 font-metapro text-xl tracking-widest font-semibold'>
             <span>View All</span>
-            <HiOutlineArrowRight/>
+            <HiOutlineArrowRight />
           </Link>
         </div>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
           {
-            [1,2,3,4].map((item,idx)=>(
-              <ScholarCard key={idx}/>
+            [1, 2, 3, 4].map((item, idx) => (
+              <ScholarCard key={idx} />
             ))
           }
         </div>
       </section>
       {/* donate now section  */}
-      <DonateNow/>
+      <DonateNow />
     </>
   )
 }
+
+
+
+// Tabs section 
+const TabsSection = () => {
+  const [activeCategory, setActiveCategory] = useState('news-videos')
+  const HandleVideosCategoryTabs = (slug: any) => {
+    setActiveCategory(slug)
+  }
+  return (
+    <section className="container mx-auto pt-20 px-4">
+      {/* top header  */}
+      <div className='flex justify-between item-center border-b-2 border-gray-500'>
+        <ul className='flex justify-between space-x-2 overflow-x-scroll xl:overflow-x-hidden font-metapro font-medium '>
+          {
+            tabData.map((item, idx) => (
+              <li key={idx} className={`${activeCategory === item.slug && 'bg-secondary px-4 py-2 text-primary '} flex-1 flex justify-center min-w-[140px] cursor-pointer  items-center`} onClick={() => HandleVideosCategoryTabs(item.slug)}>{item.name}</li>
+            ))
+          }
+        </ul>
+        <Link href="#" className='uppercase hidden md:flex  hover:text-orange items-center space-x-2 font-metapro text-xl tracking-widest font-semibold'>
+          <span>View All</span>
+          <HiOutlineArrowRight />
+        </Link>
+      </div>
+      {/* articles  */}
+      <div className='grid grid-cols-2 lg:grid-cols-4 mt-10 gap-4'>
+        {
+          [1, 2, 3, 4].map((item, idx) => (
+            <div className='bg-red-300 relative group overflow-hidden' key={idx}>
+              <Image src="/images/img.png" alt="image" width={700} height={700} className='w-full object-cover transition-all duration-200 ease-in-out group-hover:scale-105' />
+              <div className='bg-gradient-to-t from-black via-black/50 absolute inset-0 p-3 md:p-6 flex flex-col justify-end font-metapro to-black/0'>
+                <button className='bg-secondary opacity-75 hover:scale-105 p-2 pl-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'>
+                  <PiPlay size={50} />
+                </button>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  )
+}
+
+// Paigham Channel Presents
+const PaighamChannelPresents = () => {
+  const [link, setLink] = useState<string>()
+  const {setVideoLink} = useContext<any>(SettingsContext)
+
+  const handleLink = (link:string) => {
+    setVideoLink(link)
+  }
+
+  return (
+    <section className='bg-primary mt-20'>
+      <div className='container font-metapro mx-auto px-4 text-white py-16'>
+        <h2 className=' text-3xl text-center md:text-5xl font-bold'>Paigham Channel Presents</h2>
+        <div className='md:flex mt-10 md:space-x-10'>
+          <div className='md:w-[60%]'>
+            <VideoPlayer />
+          </div>
+          <div className="md:w-[40%] mt-5 md:mt-0">
+            {/* top headings  */}
+            <div className='font-semibold flex justify-between text-xl tracking-widest item-center'>
+              <h5>TODAY'S GUIDE</h5>
+              <h5 className='text-secondary'>FULL GUIDE</h5>
+            </div>
+            <ul className='mt-5 '>
+              {
+                PaighamChannelPresentsData.map((item, idx) => (
+                  <li key={idx} className='flex justify-between space-x-6 md:space-x-16 border-t-[1px] border-gray-500 py-5'>
+                    <time className='font-medium text-xl'>11:23</time>
+                    <button onClick={()=>handleLink(getVideoCode(item.videoLink))}>
+                      <h6 className='text-secondary text-xl font-medium text-left -tracking-wide'>{item.name}</h6>
+                      <p className='text-left text-lg mt-2'>{item.shortInfo}</p>
+                    </button>
+                  </li>
+                ))
+              }
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
+const tabData = [
+  {
+    name: 'News Videos',
+    slug: 'news-videos'
+  },
+  {
+    name: 'Latest Videos',
+    slug: 'latest-videos'
+  },
+  {
+    name: 'Top Trending Videos',
+    slug: 'top-trending-videos'
+  },
+]
+
+const PaighamChannelPresentsData = [
+  {
+    name: 'Al Aqsa Live',
+    shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
+    videoLink: 'https://www.youtube.com/watch?v=EngW7tLk6R8'
+  },
+  {
+    name: 'Al Aqsa Live 2',
+    shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
+    videoLink: 'https://www.youtube.com/watch?v=D0UnqGm_miA'
+  },
+  {
+    name: 'Al Aqsa Live 3',
+    shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
+    videoLink: 'https://www.youtube.com/watch?v=8xT0vWporWs'
+  },
+  
+]

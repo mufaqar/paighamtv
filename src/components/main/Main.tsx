@@ -1,24 +1,30 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import Slider from "react-slick";
 import { PiPlay } from 'react-icons/pi'
+import VideoModelBox from '../model-box/VideoModelBox';
+import { SettingsContext } from '@/context/setting-context';
 
 const Main = () => {
   const slider = React.useRef<Slider>(null);
-
+  const {modalIsOpen, setModelIsOpen, setVideoLink} = useContext(SettingsContext)
+  const OpenVideo = (link:string) =>{
+    setModelIsOpen(true)
+    setVideoLink(link)
+  }
   return (
     <main className='relative h-[calc(100vh-120px)]'>
       <Slider ref={slider} {...settings}>
         {
           [1, 2, 3].map((slide, idx) => {
             return (
-              <div key={idx} className='relative w-full bg-[url("/images/main-image.png")] h-[calc(100vh-120px)] bg-cover bg-no-repeat'              >
+              <div key={idx} className='relative w-full bg-[url("/images/main-image.png")] p-2 h-[calc(100vh-120px)] bg-cover bg-no-repeat'              >
                 <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-start justify-center'>
-                  <h1 className='text-[60px] font-bold text'>Knowledge Program</h1>
-                  <span className='tracking-widest'>EPISODE <sub>15</sub></span>
+                  <h1 className='text-4xl md:text-[60px] font-bold text mb-4'>Knowledge Program</h1>
+                  <span className='tracking-widest'>EPISODE 15</span>
                   <p className='tracking-wider text-lg mt-4 max-w-[600px]'>Knowledge Programmed aims to contribute to a society's sustainable and inclusive development.</p>
-                  <button className="inline-flex active:scale-105 hover:bg-primary hover:text-white mt-10 item-center space-x-2 bg-secondary text-darkgray font-anton px-8 py-3 uppercase tracking-widest text-lg">
+                  <button onClick={()=>OpenVideo('a3ICNMQW7Ok')} className="inline-flex active:scale-105 hover:bg-primary hover:text-white mt-10 item-center space-x-2 bg-secondary text-darkgray font-anton px-8 py-3 uppercase tracking-widest text-lg">
                     <PiPlay size={25} className="mt-[1px]" />
                     <span>Watch Now</span>
                   </button>
@@ -44,6 +50,7 @@ const Main = () => {
       </section>
       <button className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-dark-gray active:scale-105 text-yellow text-xl p-[6px] px-5 " onClick={() => slider?.current?.slickPrev()}><Image src="/svg/left-slider-arrow.svg" alt="arrow" width={60} height={60} /></button>
       <button className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-dark-gray active:scale-105 text-yellow text-xl p-[6px] px-5 " onClick={() => slider?.current?.slickNext()}><Image src="/svg/right-slider-arrow.svg" alt="arrow" width={60} height={60} /></button>
+      { modalIsOpen && <VideoModelBox setModelIsOpen={setModelIsOpen} />}
     </main>
   )
 }

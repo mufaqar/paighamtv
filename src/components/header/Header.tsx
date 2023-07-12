@@ -48,7 +48,7 @@ const Header = () => {
                 ))
               }
             </ul>
-            <div className='flex flex-col lg:flex-row my-5 mb-5 items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-3'>
+            <div className='flex flex-col lg:flex-row my-5 mb-5 md:my-0 md:mb-0 items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-3'>
               {
                 navButons.map((item, idx) => (
                   <Link href={item.link} key={idx} className='font-anton tracking-widest w-[200px] lg:w-auto font-normal group uppercase bg-white'>
