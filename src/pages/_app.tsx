@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { SettingsProvider } from '@/context/setting-context';
+import Footer from '@/components/footer';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,6 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <SettingsProvider>
         <Header />
         <Component {...pageProps} />
+        <Footer/>
       </SettingsProvider>
     </div>
   )

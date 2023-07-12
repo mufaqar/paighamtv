@@ -1,0 +1,52 @@
+import Link from 'next/link'
+import React from 'react'
+import { FaFacebookF, FaInstagram, FaTwitch, FaTwitter } from 'react-icons/fa'
+import { HiOutlineArrowRight } from 'react-icons/hi'
+import Logo from '../logo/Logo'
+import { footerNav } from '../../../public/data'
+
+const Footer = () => {
+     return (
+          <footer className='bg-primary'>
+               <div className='container mx-auto text-white px-4 py-16'>
+                    <div className='sm:flex justify-between items-center'>
+                         <div className="flex justify-center sm:justify-start space-x-5 text-3xl ">
+                              <Link href="#" className='hover:text-secondary'><FaFacebookF /></Link>
+                              <Link href="#" className='hover:text-secondary'><FaInstagram /></Link>
+                              <Link href="#" className='hover:text-secondary'><FaTwitch /></Link>
+                              <Link href="#" className='hover:text-secondary'><FaTwitter /></Link>
+                         </div>
+                         <div>
+                              <div className='bg-[#27396C] flex items-center mt-6 sm:mt-0'>
+                                   <input className='bg-transparent w-full p-4 placeholder:font-metapro md:w-[400px] outline-none placeholder:font-normal placeholder:tracking-wider' placeholder="SUBCRIBE OUR NEWSLETTER" />
+                                   <button className='bg-secondary h-full p-4 px-6 active:scale-105'><HiOutlineArrowRight size="30" /></button>
+                              </div>
+                         </div>
+                    </div>
+                    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 font-metapro gap-6 mt-16 pt-12 border-t-[1px] border-gray-500'>
+                         <Logo />
+                         {
+                              footerNav.map((item, idx) => {
+                                   return (
+                                        <div key={idx}>
+                                             <h6 className="text-lg font-medium tracking-widest">{item.name}</h6>
+                                             <ul className='mt-4'>
+                                                  {
+                                                       item.nav.map((nav,id)=>(
+                                                            <li className="text-lg mt-2 hover:text-secondary font-light text-gray-300 tracking-wider" key={id}><Link href={nav.link}>{nav.name}</Link></li>
+                                                       ))
+                                                  }
+                                             </ul>
+                                        </div>
+                                   )
+                              })
+                         }
+                    </div>
+               </div>
+          </footer>
+     )
+}
+
+export default Footer
+
+
