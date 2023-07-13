@@ -63,9 +63,9 @@ const Header = () => {
               {
                 navButons.map((item, idx) => (
                   <Link href={item.link} key={idx} className='font-anton tracking-widest w-[200px] lg:w-auto font-normal group uppercase bg-white'>
-                    <div className='px-2 py-2.5 flex items-center space-x-2 lg:space-x-1.5 justify-center'>
-                      <img src='/svg/tv.svg' alt="img" className='w-6' />
-                      <p className='text-base pt-1 group-hover:text-secondary'>{item.name}</p>
+                    <div className='px-2 py-2.5 flex items-center space-x-1.5 lg:space-x-1 justify-center'>
+                      <img src='/svg/tv.svg' alt="img" className='w-5' />
+                      <p className='text-[14px] pt-1 group-hover:text-secondary'>{item.name}</p>
                     </div>
                   </Link>
                 ))
