@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
         <Footer/>
       </SettingsProvider>
+      
     </div>
   )
 }

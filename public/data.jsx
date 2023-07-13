@@ -117,3 +117,91 @@ export const footerNav = [
 ]
 
 
+export const VideosData = [
+     {
+          title: 'Tabdeeli Ki Pehli Lehar Sabit Ho Gi',
+          image:'/images/s1.png',
+          videolink: 'https://www.youtube.com/watch?v=ZMZcA5-09As',
+          type: ''
+     },
+     {
+          title: 'Talaaq ke barhte huye Sharha par Jado',
+          image:'/images/s2.png',
+          videolink: 'https://www.youtube.com/watch?v=ZMZcA5-09As',
+          type: ''
+     },
+     {
+          title: 'Shifa’at Wajib Kar Dene Wali Dua',
+          image:'/images/s3.png',
+          videolink: 'https://www.youtube.com/watch?v=ZMZcA5-09As',
+          type: ''
+     },
+     {
+          title: 'Rasoolullah Ki Aik Khubsoorat Dua',
+          image:'/images/s4.png',
+          videolink: 'https://www.youtube.com/watch?v=ZMZcA5-09As',
+          type: ''
+     },
+     {
+          title: 'Nazar e Bad Ka Nihait Asan Ilaj',
+          image:'/images/s5.png',
+          videolink: 'https://www.youtube.com/watch?v=ZMZcA5-09As',
+          type: ''
+     },
+     {
+          title: 'Research Talk EP07',
+          image:'/images/s6.png',
+          videolink: 'https://www.youtube.com/watch?v=ZMZcA5-09As',
+          type: ''
+     },{
+          title: 'Time Line 12-04-2018',
+          image:'/images/s7.png',
+          videolink: 'https://www.youtube.com/watch?v=ZMZcA5-09As',
+          type: ''
+     }
+     ,{
+          title: 'Jiyo Pak Zindagi EP15',
+          image:'/images/s1.png',
+          videolink: 'https://www.youtube.com/watch?v=ZMZcA5-09As',
+          type: ''
+     },
+     
+]
+
+export const Scholars = [
+     {
+          name: 'Adeel Ahmed Azad',
+          image: '/images/s1.png'
+     },
+     {
+          name: 'Ustaza Nighat Hashmi',
+          image: '/images/s2.png'
+     },
+     {
+          name: 'Shaikh Muhammad Iqbal Salafi',
+          image: '/images/s3.png'
+     },
+     {
+          name: 'Dr Kunwal Qaisar',
+          image: '/images/s4.png'
+     }
+]
+
+export const category = [
+     {
+          name: 'Ramadan',
+          image: '/images/Ramadan.png'
+     },
+     {
+          name: 'Islamic',
+          image: '/images/Islamic.png'
+     },
+     {
+          name: 'Sisters',
+          image: '/images/Sisters.png'
+     },
+     {
+          name: 'Quran',
+          image: '/images/Quran.png'
+     },
+]

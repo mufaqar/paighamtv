@@ -24,7 +24,7 @@ const Main = () => {
                   <h1 className='text-4xl md:text-[60px] font-bold text mb-4'>Knowledge Program</h1>
                   <span className='tracking-widest'>EPISODE 15</span>
                   <p className='tracking-wider text-lg mt-4 max-w-[600px]'>Knowledge Programmed aims to contribute to a society's sustainable and inclusive development.</p>
-                  <button onClick={()=>OpenVideo('a3ICNMQW7Ok')} className="inline-flex active:scale-105 hover:bg-primary hover:text-white mt-10 item-center space-x-2 bg-secondary text-darkgray font-anton px-8 py-3 uppercase tracking-widest text-lg">
+                  <button onClick={()=>OpenVideo('ZMZcA5-09As')} className="inline-flex active:scale-105 hover:bg-primary hover:text-white mt-10 item-center space-x-2 bg-secondary text-darkgray font-anton px-8 py-3 uppercase tracking-widest text-lg">
                     <PiPlay size={25} className="mt-[1px]" />
                     <span>Watch Now</span>
                   </button>
@@ -37,10 +37,10 @@ const Main = () => {
       <section className='sliceslider w-[600px] 2xl:w-[800px] absolute bottom-5 2xl:bottom-10 right-0'>
         <Slider {...SliderSlice}>
           {
-            [1, 2, 3, 4,5,6].map((item, idx) => {
+            imageSlide.map((item, idx) => {
               return (
                 <div key={idx} className=''>
-                  <Image src="/images/slice.png" alt="image" width={600} height={600} className='' />
+                  <Image src={item} alt="image" width={600} height={600} className='' />
                 </div>
               )
             })
@@ -78,3 +78,8 @@ const SliderSlice = {
   arrows: false,
 
 };
+
+
+const imageSlide = [
+  "/images/sli1.png","/images/sli2.png","/images/sli3.png","/images/sli1.png","/images/sli2.png","/images/sli3.png"
+]

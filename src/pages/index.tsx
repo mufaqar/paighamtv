@@ -13,7 +13,8 @@ import VideoPlayer from '@/components/video-player/VideoPlayer'
 import {getVideoCode} from '../utils'
 import { SettingsContext } from '@/context/setting-context'
 import React, { useContext } from 'react'
-
+import {Scholars, VideosData, category} from '../../public/data'
+import { IScholorType } from '@/utils/types'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,8 +36,8 @@ export default function Home() {
         </div>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
           {
-            [1, 2, 3, 4].map((item, idx) => (
-              <CategoryCard key={idx} />
+            category.map((item, idx) => (
+              <CategoryCard key={idx} item={item}/>
             ))
           }
         </div>
@@ -55,8 +56,8 @@ export default function Home() {
         </div>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
           {
-            [1, 2, 3, 4].map((item, idx) => (
-              <ScholarCard key={idx} />
+            Scholars.map((item:IScholorType, idx:number) => (
+              <ScholarCard key={idx} item={item}/>
             ))
           }
         </div>
@@ -75,6 +76,11 @@ const TabsSection = () => {
   const HandleVideosCategoryTabs = (slug: any) => {
     setActiveCategory(slug)
   }
+  const { modalIsOpen, setModelIsOpen, setVideoLink } = useContext(SettingsContext)
+     const OpenVideo = (link: string) => {
+          setModelIsOpen(true)
+          setVideoLink(link)
+     }
   return (
     <section className="container mx-auto pt-20 px-4">
       {/* top header  */}
@@ -94,11 +100,11 @@ const TabsSection = () => {
       {/* articles  */}
       <div className='grid grid-cols-2 lg:grid-cols-4 mt-10 gap-4'>
         {
-          [1, 2, 3, 4].map((item, idx) => (
+          VideosData.slice(0,4).map((item, idx) => (
             <div className='bg-red-300 relative group overflow-hidden' key={idx}>
-              <Image src="/images/img.png" alt="image" width={700} height={700} className='w-full object-cover transition-all duration-200 ease-in-out group-hover:scale-105' />
+              <Image src={item.image} alt="image" width={700} height={700} className='w-full object-cover transition-all duration-200 ease-in-out group-hover:scale-105' />
               <div className='bg-gradient-to-t from-black via-black/50 absolute inset-0 p-3 md:p-6 flex flex-col justify-end font-metapro to-black/0'>
-                <button className='bg-secondary opacity-75 hover:scale-105 p-2 pl-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'>
+                <button onClick={() => OpenVideo(getVideoCode(item.videolink))} className='bg-secondary opacity-75 hover:scale-105 p-2 pl-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'>
                   <PiPlay size={50} />
                 </button>
               </div>
@@ -174,17 +180,17 @@ const PaighamChannelPresentsData = [
   {
     name: 'Al Aqsa Live',
     shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
-    videoLink: 'https://www.youtube.com/watch?v=EngW7tLk6R8'
+    videoLink: 'https://www.youtube.com/watch?v=ZMZcA5-09As'
   },
   {
     name: 'Al Aqsa Live 2',
     shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
-    videoLink: 'https://www.youtube.com/watch?v=D0UnqGm_miA'
+    videoLink: 'https://www.youtube.com/watch?v=ZMZcA5-09As'
   },
   {
     name: 'Al Aqsa Live 3',
     shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
-    videoLink: 'https://www.youtube.com/watch?v=8xT0vWporWs'
+    videoLink: 'https://www.youtube.com/watch?v=ZMZcA5-09As'
   },
   
 ]
