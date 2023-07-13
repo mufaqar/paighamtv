@@ -51,7 +51,7 @@ const Header = () => {
               isMobileNav ? <RxCross1 size={28} className='text-white' /> : <RiMenu5Fill size={32} className='text-white' />
             }
           </button>
-          <div className={`lg:flex items-center lg:space-x-4 ${isMobileNav ? 'block absolute top-[65px] p-6 pt-16 pb-10 left-0 right-0 z-[1] bg-primary' : 'hidden'}`}>
+          <div className={`lg:flex items-center lg:space-x-3 ${isMobileNav ? 'block absolute top-[65px] p-6 pt-16 pb-10 left-0 right-0 z-[1] bg-primary' : 'hidden'}`}>
             <ul className='lg:flex items-center lg:space-x-8 space-y-4 lg:space-y-0'>
               {
                 navList.map((item, idx) => (
@@ -59,7 +59,7 @@ const Header = () => {
                 ))
               }
             </ul>
-            <div className='flex flex-col lg:flex-row my-5 mb-5 md:my-0 md:mb-0 items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-3'>
+            <div className='flex flex-col lg:flex-row my-5 mb-5 md:my-0 md:mb-0 items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-1.5'>
               {
                 navButons.map((item, idx) => (
                   <Link href={item.link} key={idx} className='font-anton tracking-widest w-[200px] lg:w-auto font-normal group uppercase bg-white'>
@@ -71,7 +71,7 @@ const Header = () => {
                 ))
               }
             </div>
-            <Link href="#" className='uppercase text-base w-[200px] lg:w-auto hover:bg-orange inline-block text-center active:scale:105 hover:border-orange text-pure border px-5 py-[11px] font-anton tracking-widest border-pure'>Donate us</Link>
+            <Link href="#" className='uppercase text-base w-[200px] lg:w-auto hover:bg-orange inline-block text-center active:scale:105 hover:border-orange text-pure border px-5 py-[9.5px] font-anton tracking-widest border-pure'>Donate us</Link>
           </div>
         </nav>
 
