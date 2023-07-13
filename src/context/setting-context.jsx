@@ -4,6 +4,7 @@ export const SettingsContext = createContext();
 
 export const SettingsProvider = ({ children }) => {
   const [modalIsOpen, setModelIsOpen] = useState(false);
+  const [SearchModalIsOpen, setSearchModalIsOpen] = useState(false);
   const [videoLink, setVideoLink] = useState()
 
   // hide site scrolling when model box is true state
@@ -25,7 +26,9 @@ export const SettingsProvider = ({ children }) => {
         modalIsOpen,
         setModelIsOpen,
         setVideoLink,
-        videoLink
+        videoLink,
+        SearchModalIsOpen, 
+        setSearchModalIsOpen
       }}
     >
       {children}

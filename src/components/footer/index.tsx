@@ -10,12 +10,7 @@ const Footer = () => {
           <footer className='bg-primary'>
                <div className='container mx-auto text-white px-4 py-16'>
                     <div className='sm:flex justify-between items-center'>
-                         <div className="flex justify-center sm:justify-start space-x-5 text-3xl ">
-                              <Link href="#" className='hover:text-secondary'><FaFacebookF /></Link>
-                              <Link href="#" className='hover:text-secondary'><FaInstagram /></Link>
-                              <Link href="#" className='hover:text-secondary'><FaTwitch /></Link>
-                              <Link href="#" className='hover:text-secondary'><FaTwitter /></Link>
-                         </div>
+                         <Socials/>
                          <div>
                               <div className='bg-[#27396C] flex items-center mt-6 sm:mt-0'>
                                    <input className='bg-transparent w-full p-4 placeholder:font-metapro md:w-[400px] outline-none placeholder:font-normal placeholder:tracking-wider' placeholder="SUBCRIBE OUR NEWSLETTER" />
@@ -32,7 +27,7 @@ const Footer = () => {
                                              <h6 className="text-lg font-medium tracking-widest">{item.name}</h6>
                                              <ul className='mt-4'>
                                                   {
-                                                       item.nav.map((nav,id)=>(
+                                                       item.nav.map((nav, id) => (
                                                             <li className="text-lg mt-2 hover:text-secondary font-light text-gray-300 tracking-wider" key={id}><Link href={nav.link}>{nav.name}</Link></li>
                                                        ))
                                                   }
@@ -50,3 +45,13 @@ const Footer = () => {
 export default Footer
 
 
+export const Socials = () => {
+     return (
+          <div className="flex justify-center sm:justify-start space-x-5 text-3xl ">
+               <Link href="#" className='hover:text-secondary'><FaFacebookF /></Link>
+               <Link href="#" className='hover:text-secondary'><FaInstagram /></Link>
+               <Link href="#" className='hover:text-secondary'><FaTwitch /></Link>
+               <Link href="#" className='hover:text-secondary'><FaTwitter /></Link>
+          </div>
+     )
+}
