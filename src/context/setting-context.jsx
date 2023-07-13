@@ -6,10 +6,12 @@ export const SettingsProvider = ({ children }) => {
   const [modalIsOpen, setModelIsOpen] = useState(false);
   const [SearchModalIsOpen, setSearchModalIsOpen] = useState(false);
   const [videoLink, setVideoLink] = useState()
+  const [SetctedCategory, setCategory] = useState('Ramadan')
+
 
   // hide site scrolling when model box is true state
   useEffect(() => {
-    if (modalIsOpen) {
+    if (modalIsOpen || SearchModalIsOpen) {
       document.body.classList.add('no-scroll');
     } else {
       document.body.classList.remove('no-scroll');
@@ -18,7 +20,7 @@ export const SettingsProvider = ({ children }) => {
     return () => {
       document.body.classList.remove('no-scroll');
     };
-  }, [modalIsOpen]);
+  }, [modalIsOpen, SearchModalIsOpen]);
 
   return (
     <SettingsContext.Provider
@@ -28,7 +30,8 @@ export const SettingsProvider = ({ children }) => {
         setVideoLink,
         videoLink,
         SearchModalIsOpen, 
-        setSearchModalIsOpen
+        setSearchModalIsOpen,
+        SetctedCategory, setCategory,
       }}
     >
       {children}

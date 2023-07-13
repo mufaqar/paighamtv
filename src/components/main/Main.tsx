@@ -39,9 +39,9 @@ const Main = () => {
           {
             imageSlide.map((item, idx) => {
               return (
-                <div key={idx} className=''>
+                <button onClick={()=>OpenVideo('ZMZcA5-09As')} key={idx} className=''>
                   <Image src={item} alt="image" width={600} height={600} className='' />
-                </div>
+                </button>
               )
             })
           }
@@ -76,7 +76,7 @@ const SliderSlice = {
   autoplaySpeed: 0,
   cssEase: "linear",
   arrows: false,
-
+  pauseOnHover: true,
 };
 
 
