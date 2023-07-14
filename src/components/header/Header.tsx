@@ -9,14 +9,20 @@ import { RxCross1 } from 'react-icons/rx'
 import { Socials } from '../footer';
 import { SettingsContext } from '@/context/setting-context';
 import SearchModelBox from '../model-box/searchModelBox';
+import { useRouter } from 'next/router';
 
 const Header = () => {
   const [isMobileNav, setIsMobileNav] = useState(false)
   const [leftSidebar, setLeftSideBar] = useState(false)
-
+  const router = useRouter();
   const { SearchModalIsOpen, setSearchModalIsOpen } = useContext(SettingsContext)
   const OpenSearch = () => {
     setSearchModalIsOpen(true)
+  }
+
+  const NavController =(path:any) => {
+    router.push(path)
+    setIsMobileNav(!isMobileNav)
   }
 
   return (
@@ -55,7 +61,7 @@ const Header = () => {
             <ul className='lg:flex items-center lg:space-x-8 space-y-4 lg:space-y-0'>
               {
                 navList.map((item, idx) => (
-                  <li key={idx} className='font-metapro hover:text-secondary tracking-wide font-semibold capitalize text-lg text-pure'><Link href={item.link}>{item.name}</Link></li>
+                  <li key={idx} className='font-metapro hover:text-secondary tracking-wide font-semibold capitalize text-lg text-pure' onClick={()=>NavController(item.link)}>{item.name}</li>
                 ))
               }
             </ul>
@@ -74,8 +80,8 @@ const Header = () => {
             <Link href="#" className='uppercase text-base w-[200px] lg:w-auto hover:bg-orange inline-block text-center active:scale:105 hover:border-orange text-pure border px-5 py-[9.5px] font-anton tracking-widest border-pure'>Donate us</Link>
           </div>
         </nav>
-
       </header>
+      
       <LeftSideBar leftSidebar={leftSidebar} setLeftSideBar={setLeftSideBar} />
       {SearchModalIsOpen && <SearchModelBox setSearchModalIsOpen={setSearchModalIsOpen} />}
     </>
