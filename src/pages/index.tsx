@@ -141,7 +141,6 @@ const TabsSection = () => {
 
 // Paigham Channel Presents
 const PaighamChannelPresents = () => {
-  const [link, setLink] = useState<string>()
   const {setVideoLink} = useContext<any>(SettingsContext)
 
   const handleLink = (link:string) => {
