@@ -207,12 +207,12 @@ const PaighamChannelPresentsData = [
   {
     name: 'Al Aqsa Live 2',
     shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
-    videoLink: 'https://www.youtube.com/watch?v=ZMZcA5-09As'
+    videoLink: 'https://www.youtube.com/watch?v=xjGJ5wYs8AQ'
   },
   {
     name: 'Al Aqsa Live 3',
     shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
-    videoLink: 'https://www.youtube.com/watch?v=ZMZcA5-09As'
+    videoLink: 'https://www.youtube.com/watch?v=EfZDFrZfJow'
   },
   
 ]
