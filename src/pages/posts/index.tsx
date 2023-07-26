@@ -1,6 +1,6 @@
 import PageBanner from '@/components/pageBanner/PageBanner'
 import apolloClient from '@/config/client'
-import { AllPosts } from '@/config/query'
+import { postsForListingPage } from '@/config/query'
 import { GetServerSideProps } from 'next'
 import React, { useContext } from 'react'
 import Card from '@/components/video-section/card'
@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps = async (params) => {
      const method = params?.query?.method
 
      const postsResponse = await apolloClient.query({
-          query: AllPosts,
+          query: postsForListingPage,
           variables: {
                endCursor
           },
