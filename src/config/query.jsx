@@ -28,7 +28,7 @@ query AllPosts($endCursor: String) {
 }
   `;
 
-  export const AllPosts = gql`
+export const AllPosts = gql`
 query AllPosts {
   posts(first: 100) {
     nodes {
