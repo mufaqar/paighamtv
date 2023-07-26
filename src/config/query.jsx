@@ -1,28 +1,31 @@
 import { gql } from "@apollo/client";
 
 export const AllPosts = gql`
-    query AllPosts {
-     posts(first: 9999)  {
-          nodes {
-            title
-            slug
-            featuredImage {
-              node {
-                mediaItemUrl
-              }
-            }
-            categories {
-              nodes {
-                slug
-                name
-              }
-            }
-            postInfo {
-              tmVideoUrl
-            }
-          }
+query AllPosts($endCursor: String) {
+  posts(first: 12, after: $endCursor) {
+    nodes {
+      title
+      slug
+      featuredImage {
+        node {
+          mediaItemUrl
         }
+      }
+      categories {
+        nodes {
+          slug
+          name
+        }
+      }
+      postInfo {
+        tmVideoUrl
+      }
     }
+    pageInfo {
+      endCursor
+    }
+  }
+}
   `;
 
 // post by category pass category slug in qury 

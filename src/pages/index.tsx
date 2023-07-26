@@ -17,7 +17,7 @@ import { Scholars, VideosData, category } from '../../public/data'
 import { IScholorType } from '@/utils/types'
 import { Helmet } from 'react-helmet';
 import apolloClient from '@/config/client'
-import { AllPosts, Categories, PostsByCategory } from '@/config/query'
+import { AllPosts, Categories } from '@/config/query'
 import { GetStaticProps } from 'next'
 
 

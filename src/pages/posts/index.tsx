@@ -1,7 +1,7 @@
 import PageBanner from '@/components/pageBanner/PageBanner'
 import apolloClient from '@/config/client'
 import { AllPosts } from '@/config/query'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import React, { useContext } from 'react'
 import Card from '@/components/video-section/card'
 import { SettingsContext } from '@/context/setting-context'
@@ -15,18 +15,22 @@ const Posts = ({ allposts }: any) => {
           setModelIsOpen(true)
           setVideoLink(link)
      }
+     const { pageInfo } = allposts
 
      return (
           <section>
                <PageBanner title="All Posts" image="/images/main-image.png" />
+               <ul>
+                    
+               </ul>
                <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 mt-10 gap-4'>
                     {
-                         allposts?.map((item: IPost, idx: number) => (
+                         allposts?.nodes?.map((item: IPost, idx: number) => (
                               <Card item={item} key={idx} OpenVideo={OpenVideo} />
                          ))
                     }
                </div>
-               <Pagination/>
+               <Pagination endCursor={pageInfo?.endCursor}/>
           </section>
      )
 }
@@ -35,11 +39,17 @@ export default Posts
 
 
 
-export const getStaticProps: GetStaticProps = async () => {
-     const [postsResponse] = await Promise.all([
-          apolloClient.query({ query: AllPosts }),
-     ]);
-     const allposts = postsResponse.data.posts.nodes;
+export const getServerSideProps: GetServerSideProps = async (params) => {
+     const endCursor = params?.query?.endCursor
+     const method = params?.query?.method
+
+     const postsResponse = await apolloClient.query({
+          query: AllPosts,
+          variables: {
+               endCursor
+          },
+        });
+        const allposts = postsResponse.data.posts;
      return {
           props: {
                allposts,

@@ -1,67 +1,89 @@
-import { useQuery } from '@apollo/client';
-import { gql } from 'graphql-tag';
+import { gql } from '@apollo/client';
 import apolloClient from '@/config/client'
+import { useRouter } from 'next/router';
 
-const POSTS_QUERY = gql`
-  query PostsQuery($first: Int!, $after: String) {
-    posts(first: $first, after: $after) {
-      edges {
-        cursor
-        node {
-          id
-          title
-          content
+
+const PAGE_SIZE = 10;
+
+async function fetchPaginatedData(pageCursor) {
+  
+
+  const query = gql`
+    query Posts($first: Int, $after: String, $before: String) {
+      posts(first: $first, after: $after, before: $before, where: { status: PUBLISH }) {
+        edges {
+          node {
+            id
+            title
+            # other fields you need
+          }
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
         }
       }
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
     }
-  }
-`;
+  `;
 
-export default function PostsPage() {
-  const PAGE_SIZE = 10; // Number of posts to load per page
-  const { data, loading, error, fetchMore } = useQuery(POSTS_QUERY, {
-    variables: { first: PAGE_SIZE },
-    client: apolloClient,
+  const variables = { first: PAGE_SIZE };
+
+  if (pageCursor) {
+    variables.after = pageCursor;
+    variables.before = pageCursor;
+  }
+
+  const { data } = await apolloClient.query({
+    query,
+    variables,
   });
 
-  const handleLoadMore = () => {
-    if (data.posts.pageInfo.hasNextPage) {
-      fetchMore({
-        variables: {
-          after: data.posts.pageInfo.endCursor,
-        },
-        updateQuery: (prevResult, { fetchMoreResult }) => {
-          if (!fetchMoreResult) return prevResult;
+  return data?.posts;
+}
 
-          return {
-            posts: {
-              ...fetchMoreResult.posts,
-              edges: [...prevResult.posts.edges, ...fetchMoreResult.posts.edges],
-            },
-          };
-        },
-      });
-    }
+function BlogPage({ posts, pageInfo }) {
+  const router = useRouter();
+
+  const handleNextPage = () => {
+    const { endCursor } = pageInfo;
+    router.push(`/test?after=${endCursor}`);
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  const { edges, pageInfo } = data.posts;
+  const handlePreviousPage = () => {
+    const { startCursor } = pageInfo;
+    router.push(`/test?before=${startCursor}`);
+  };
 
   return (
-    <div>
-      {edges.map((post) => (
-        <div key={post.node.id}>
-          <h2>{post.node.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: post.node.content }} />
-        </div>
+    <div className=''>
+      {posts.map((post) => (
+        <p key={post.node.id}>{post.node.title}</p>
+        // Render other post details here
       ))}
-      {pageInfo.hasNextPage && <button onClick={handleLoadMore}>Load More</button>}
+
+      <div>
+        {pageInfo.hasPreviousPage && (
+          <button onClick={handlePreviousPage}>Previous</button>
+        )}
+
+        {pageInfo.hasNextPage && <button onClick={handleNextPage}>Next</button>}
+      </div>
     </div>
   );
 }
+
+export async function getServerSideProps({ query }) {
+  const pageCursor = query.after || query.before || null;
+  const data = await fetchPaginatedData(pageCursor);
+
+  return {
+    props: {
+      posts: data?.edges || [],
+      pageInfo: data?.pageInfo || {},
+    },
+  };
+}
+
+export default BlogPage;

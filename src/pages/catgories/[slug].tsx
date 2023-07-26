@@ -9,7 +9,6 @@ import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
 
 const Category = ({ posts }: any) => {
-  const { query } = useRouter()
   const { name, posts: { nodes } } = posts
 
   const { setModelIsOpen, setVideoLink } = useContext(SettingsContext)
@@ -44,6 +43,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   });
   const posts = response.data.category;
+
   return {
     props: {
       posts,
