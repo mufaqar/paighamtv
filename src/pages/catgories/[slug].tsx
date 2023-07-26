@@ -20,7 +20,7 @@ const Category = ({ posts }: any) => {
   return (
     <>
       <PageBanner title={name} image="/images/main-image.png" />
-      <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 mt-10 gap-4'>
+      <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 gap-4'>
         {
           nodes?.map((item: IPost, idx: number) => (
             <Card item={item} key={idx} OpenVideo={OpenVideo} />

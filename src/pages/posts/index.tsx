@@ -20,10 +20,7 @@ const Posts = ({ allposts }: any) => {
      return (
           <section>
                <PageBanner title="All Posts" image="/images/main-image.png" />
-               <ul>
-                    
-               </ul>
-               <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 mt-10 gap-4'>
+               <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 mt-20 gap-4'>
                     {
                          allposts?.nodes?.map((item: IPost, idx: number) => (
                               <Card item={item} key={idx} OpenVideo={OpenVideo} />
