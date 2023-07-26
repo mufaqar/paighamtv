@@ -10,12 +10,13 @@ import { Socials } from '../footer';
 import { SettingsContext } from '@/context/setting-context';
 import SearchModelBox from '../model-box/searchModelBox';
 import { useRouter } from 'next/router';
+import VideoModelBox from '../model-box/VideoModelBox';
 
 const Header = () => {
   const [isMobileNav, setIsMobileNav] = useState(false)
   const [leftSidebar, setLeftSideBar] = useState(false)
   const router = useRouter();
-  const { SearchModalIsOpen, setSearchModalIsOpen } = useContext(SettingsContext)
+  const { SearchModalIsOpen, setSearchModalIsOpen,  modalIsOpen, setModelIsOpen } = useContext(SettingsContext)
   const OpenSearch = () => {
     setSearchModalIsOpen(true)
   }
@@ -84,6 +85,7 @@ const Header = () => {
       
       <LeftSideBar leftSidebar={leftSidebar} setLeftSideBar={setLeftSideBar} />
       {SearchModalIsOpen && <SearchModelBox setSearchModalIsOpen={setSearchModalIsOpen} />}
+      {modalIsOpen && <VideoModelBox setModelIsOpen={setModelIsOpen} />}
     </>
   )
 }

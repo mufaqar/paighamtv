@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 
 interface IPageBanner {
-     title: string,
+     title: any,
      image: string
 }
 

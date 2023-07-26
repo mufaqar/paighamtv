@@ -10,39 +10,43 @@ import VideoSection from '@/components/video-section/VideoSection'
 import { useState } from 'react'
 import { PiPlay } from 'react-icons/pi'
 import VideoPlayer from '@/components/video-player/VideoPlayer'
-import {getVideoCode} from '../utils'
+import { getVideoCode } from '../utils'
 import { SettingsContext } from '@/context/setting-context'
 import React, { useContext } from 'react'
-import {Scholars, VideosData, category} from '../../public/data'
+import { Scholars, VideosData, category } from '../../public/data'
 import { IScholorType } from '@/utils/types'
 import { Helmet } from 'react-helmet';
+import apolloClient from '@/config/client'
+import { AllPosts, Categories, PostsByCategory } from '@/config/query'
+import { GetStaticProps } from 'next'
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({ allposts, allCategories }: any) {
   return (
     <>
-
-    <Helmet>   
-    <title>Home - Paigham TV</title>
-      <meta name="description" content="Paigham TV is an Islamic educational channel television network. It launched its Urdu language TV channel in 2011. The production of this channel is based on the teachings of Quran o Sunnah. A team of Islamic scholars monitors the material presented on its programs. Each program of Paigham TV is previewed according to authentic references of Quran o Hadees." />
-      <link rel="canonical" href="https://paigham.tv/" />
-      <meta property="og:locale" content="en_US" />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content="Home - Paigham TV" />
-      <meta property="og:description" content="Paigham TV is an Islamic educational channel television network. It launched its Urdu language TV channel in 2011. The production of this channel is based on the teachings of Quran o Sunnah. A team of Islamic scholars monitors the material presented on its programs. Each program of Paigham TV is previewed according to authentic references of Quran o Hadees." />
-      <meta property="og:url" content="https://paigham.tv/" />
-      <meta property="og:site_name" content="Paigham TV" />
-      <meta property="article:publisher" content="https://web.facebook.com/paighamtv" />
-      <meta property="article:modified_time" content="2023-05-14T04:41:56+00:00" />
-      <meta property="og:image" content="https://paigham.tv/wp-content/uploads/2018/09/paigham-tv-logo-img.jpg" />
-      <meta property="og:image:width" content="960" />
-      <meta property="og:image:height" content="960" />
-      <meta property="og:image:type" content="image/jpeg" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@paighamtv" />
-      <meta name="twitter:label1" content="Est. reading time" />
-      <meta name="twitter:data1" content="2 minutes" />
+      <Helmet>
+        <title>Home - Paigham TV</title>
+        <meta name="description" content="Paigham TV is an Islamic educational channel television network. It launched its Urdu language TV channel in 2011. The production of this channel is based on the teachings of Quran o Sunnah. A team of Islamic scholars monitors the material presented on its programs. Each program of Paigham TV is previewed according to authentic references of Quran o Hadees." />
+        <link rel="canonical" href="https://paigham.tv/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Home - Paigham TV" />
+        <meta property="og:description" content="Paigham TV is an Islamic educational channel television network. It launched its Urdu language TV channel in 2011. The production of this channel is based on the teachings of Quran o Sunnah. A team of Islamic scholars monitors the material presented on its programs. Each program of Paigham TV is previewed according to authentic references of Quran o Hadees." />
+        <meta property="og:url" content="https://paigham.tv/" />
+        <meta property="og:site_name" content="Paigham TV" />
+        <meta property="article:publisher" content="https://web.facebook.com/paighamtv" />
+        <meta property="article:modified_time" content="2023-05-14T04:41:56+00:00" />
+        <meta property="og:image" content="https://paigham.tv/wp-content/uploads/2018/09/paigham-tv-logo-img.jpg" />
+        <meta property="og:image:width" content="960" />
+        <meta property="og:image:height" content="960" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@paighamtv" />
+        <meta name="twitter:label1" content="Est. reading time" />
+        <meta name="twitter:data1" content="2 minutes" />
       </Helmet>
       <Main />
       <TabsSection />
@@ -60,13 +64,13 @@ export default function Home() {
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
           {
             category.map((item, idx) => (
-              <CategoryCard key={idx} item={item}/>
+              <CategoryCard key={idx} item={item} />
             ))
           }
         </div>
       </section>
       {/* videos section  */}
-      <VideoSection />
+      <VideoSection allposts={allposts} allCategories={allCategories}/>
       {/* Scholar section  */}
       <section className='container mx-auto mb-28 px-4'>
         {/* heading  */}
@@ -79,8 +83,8 @@ export default function Home() {
         </div>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
           {
-            Scholars.map((item:IScholorType, idx:number) => (
-              <ScholarCard key={idx} item={item}/>
+            Scholars.map((item: IScholorType, idx: number) => (
+              <ScholarCard key={idx} item={item} />
             ))
           }
         </div>
@@ -100,10 +104,10 @@ const TabsSection = () => {
     setActiveCategory(slug)
   }
   const { modalIsOpen, setModelIsOpen, setVideoLink } = useContext(SettingsContext)
-     const OpenVideo = (link: string) => {
-          setModelIsOpen(true)
-          setVideoLink(link)
-     }
+  const OpenVideo = (link: string) => {
+    setModelIsOpen(true)
+    setVideoLink(link)
+  }
   return (
     <section className="container mx-auto pt-20 px-4">
       {/* top header  */}
@@ -123,7 +127,7 @@ const TabsSection = () => {
       {/* articles  */}
       <div className='grid grid-cols-2 lg:grid-cols-4 mt-10 gap-4'>
         {
-          VideosData.slice(0,4).map((item, idx) => (
+          VideosData.slice(0, 4).map((item, idx) => (
             <div className='bg-red-300 relative group overflow-hidden' key={idx}>
               <Image src={item.image} alt="image" width={700} height={700} className='w-full object-cover transition-all duration-200 ease-in-out group-hover:scale-105' />
               <div className='bg-gradient-to-t from-black via-black/50 absolute inset-0 p-3 md:p-6 flex flex-col justify-end font-metapro to-black/0'>
@@ -141,9 +145,9 @@ const TabsSection = () => {
 
 // Paigham Channel Presents
 const PaighamChannelPresents = () => {
-  const {setVideoLink} = useContext<any>(SettingsContext)
+  const { setVideoLink } = useContext<any>(SettingsContext)
 
-  const handleLink = (link:string) => {
+  const handleLink = (link: string) => {
     setVideoLink(link)
   }
 
@@ -166,7 +170,7 @@ const PaighamChannelPresents = () => {
                 PaighamChannelPresentsData.map((item, idx) => (
                   <li key={idx} className='flex justify-between space-x-6 md:space-x-16 border-t-[1px] border-gray-500 py-5'>
                     <time className='font-medium text-xl'>11:23</time>
-                    <button onClick={()=>handleLink(getVideoCode(item.videoLink))}>
+                    <button onClick={() => handleLink(getVideoCode(item.videoLink))}>
                       <h6 className='text-secondary text-xl font-medium text-left -tracking-wide'>{item.name}</h6>
                       <p className='text-left text-lg mt-2'>{item.shortInfo}</p>
                     </button>
@@ -180,6 +184,25 @@ const PaighamChannelPresents = () => {
     </section>
   )
 }
+
+
+export const getStaticProps: GetStaticProps = async () => {
+  const [postsResponse, categories ] = await Promise.all([
+    apolloClient.query({ query: AllPosts }),
+    apolloClient.query({ query: Categories }),
+  ]);
+
+  const allposts = postsResponse.data.posts.nodes;
+  const allCategories = categories.data.categories.nodes
+  return {
+    props: {
+      allposts,
+      allCategories
+    },
+  };
+}
+
+
 
 
 const tabData = [
@@ -213,5 +236,5 @@ const PaighamChannelPresentsData = [
     shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
     videoLink: 'https://www.youtube.com/watch?v=EfZDFrZfJow'
   },
-  
+
 ]
