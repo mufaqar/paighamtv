@@ -37,7 +37,7 @@ const Header = () => {
               return (
                 <div className='flex items-center' key={idx}>
                   <div className='p-[2.5px] px-3 bg-blue' />
-                  <span className="mx-2 text-sm md:text-base uppercase font-anton font-semibold text-[#050007] tracking-[2.4px]">Marquee Item {item}</span>
+                  <span className="mx-2 text-sm md:text-base uppercase font-anton font-semibold text-[#050007] tracking-[2.4px]">{item}</span>
                 </div>
               )
             })
@@ -80,7 +80,7 @@ const Header = () => {
                 ))
               }
             </div>
-            <Link href="#" className='uppercase text-base w-[200px] lg:w-auto hover:bg-orange inline-block text-center active:scale:105 hover:border-orange text-pure border px-5 py-[9.5px] font-anton tracking-widest border-pure'>Donate us</Link>
+            <Link href="/donate-us" className='uppercase text-base w-[200px] lg:w-auto hover:bg-orange inline-block text-center active:scale:105 hover:border-orange text-pure border px-5 py-[9.5px] font-anton tracking-widest border-pure'>Donate us</Link>
           </div>
         </nav>
       </header>
@@ -102,7 +102,7 @@ const LeftSideBar = ({ setLeftSideBar, leftSidebar }: any) => {
         <Logo />
         <p className='mt-4 text-center font-metapro mb-6'>Paigham TV is an Islamic educational channel television network. It launched its Urdu language TV channel in 2011 and Pashto Channel was launched in 2014</p>
         <Socials />
-        <Link href="#" className='mt-10 border border-secondary text-secondary hover:bg-secondary hover:text-black font-anton tracking-widest p-3 px-10'>Donate Us</Link>
+        <Link href="/donate-us" className='mt-10 border border-secondary text-secondary hover:bg-secondary hover:text-black font-anton tracking-widest p-3 px-10'>Donate Us</Link>
         <img src="/images/bg-side.png" className='absolute bottom-0 opacity-20 left-0' />
         <RxCross1 className='absolute left-10 text-2xl hover:text-secondary cursor-pointer' onClick={() => setLeftSideBar(false)} />
         <iframe className="mt-8" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13592.604137323078!2d74.300666!3d31.602321!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191c7c0a71319d%3A0x4217b592e2f4ea1c!2sSuccess%20Designers!5e0!3m2!1sen!2sus!4v1689244313056!5m2!1sen!2sus" width="280" height="200" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
