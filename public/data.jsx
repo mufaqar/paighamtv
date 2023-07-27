@@ -1,6 +1,6 @@
 export const headerSlider = [
-  'The main motive of Paigham TV is to make the idle environment back to its place as a pure Muslim nati',
-  'R-elatives and world leaders mourn the tragic loss of life as migrant boat sinks off greek.',
+  'The main motive of Paigham TV is to make the idle environment back to its place as a pure Muslim nation',
+  'Relatives and world leaders mourn the tragic loss of life as migrant boat sinks off greek.',
 ];
 
 export const footerNav = [

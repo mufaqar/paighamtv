@@ -37,7 +37,7 @@ const Header = () => {
               return (
                 <div className='flex items-center' key={idx}>
                   <div className='p-[2.5px] px-3 bg-blue' />
-                  <span className="mx-2 text-sm md:text-base uppercase font-anton font-semibold text-[#050007] tracking-[2.4px]">{item}</span>
+                  <span className="mx-2 text-sm md:text-base  font-anton font-semibold text-[#050007] tracking-[2.4px]">{item}</span>
                 </div>
               )
             })
