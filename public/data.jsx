@@ -1,7 +1,6 @@
 export const headerSlider = [
   'The main motive of Paigham TV is to make the idle environment back to its place as a pure Muslim nati',
-  'EID AL-ADHA AND HAJJ DATES CONFIRMED',
-  'RELATIVES AND WORLD LEADERS MOURN THE TRAGIC LOSS OF LIFE AS MIGRANT BOAT SINKS OFF GREEK',
+  'R-elatives and world leaders mourn the tragic loss of life as migrant boat sinks off greek.',
 ];
 
 export const footerNav = [
