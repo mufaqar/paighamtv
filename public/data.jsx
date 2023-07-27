@@ -73,7 +73,7 @@ export const footerNav = [
     nav: [
       {
         name: 'About Us',
-        link: '#',
+        link: '/about-us',
       },
       {
         name: 'News',
@@ -84,8 +84,8 @@ export const footerNav = [
         link: '/contact-us',
       },
       {
-        name: 'Writing',
-        link: '#',
+        name: 'Programs',
+        link: '/program-scheduling',
       },
     ],
   },
