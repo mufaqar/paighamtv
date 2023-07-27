@@ -114,8 +114,8 @@ const LeftSideBar = ({ setLeftSideBar, leftSidebar }: any) => {
 
 const navList = [
   {
-    name: 'Scholar',
-    link: '/scholar'
+    name: 'Scholars',
+    link: '/scholars'
   },
   {
     name: 'Playlist',
