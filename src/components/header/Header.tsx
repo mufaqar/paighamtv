@@ -12,16 +12,17 @@ import SearchModelBox from '../model-box/searchModelBox';
 import { useRouter } from 'next/router';
 import VideoModelBox from '../model-box/VideoModelBox';
 
+
 const Header = () => {
   const [isMobileNav, setIsMobileNav] = useState(false)
   const [leftSidebar, setLeftSideBar] = useState(false)
   const router = useRouter();
-  const { SearchModalIsOpen, setSearchModalIsOpen,  modalIsOpen, setModelIsOpen } = useContext(SettingsContext)
+  const { SearchModalIsOpen, setSearchModalIsOpen, modalIsOpen, setModelIsOpen } = useContext(SettingsContext)
   const OpenSearch = () => {
     setSearchModalIsOpen(true)
   }
 
-  const NavController =(path:any) => {
+  const NavController = (path: any) => {
     router.push(path)
     setIsMobileNav(!isMobileNav)
   }
@@ -62,17 +63,18 @@ const Header = () => {
             <ul className='lg:flex items-center lg:space-x-8 space-y-4 lg:space-y-0'>
               {
                 navList.map((item, idx) => (
-                  <li key={idx} className='font-metapro hover:text-secondary tracking-wide font-semibold capitalize text-lg text-pure' onClick={()=>NavController(item.link)}>{item.name}</li>
+                  <li key={idx} className='font-metapro hover:text-secondary tracking-wide font-semibold capitalize text-lg text-pure' onClick={() => NavController(item.link)}>{item.name}</li>
                 ))
               }
             </ul>
             <div className='flex flex-col lg:flex-row my-5 mb-5 md:my-0 md:mb-0 items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-1.5'>
               {
                 navButons.map((item, idx) => (
-                  <Link href={item.link} key={idx} className='font-anton tracking-widest w-[200px] lg:w-auto font-normal group uppercase bg-white'>
+                  <Link href={item.link} key={idx} target='_blank' className='font-anton tracking-widest w-[200px] lg:w-auto font-normal group uppercase bg-white'>
                     <div className='px-2 py-2.5 flex items-center space-x-1.5 lg:space-x-1 justify-center'>
-                      <img src='/svg/tv.svg' alt="img" className='w-5' />
+                      <img src={item.icon} alt={item.name} className='w-[25px]' />
                       <p className='text-[14px] pt-1 group-hover:text-secondary'>{item.name}</p>
+
                     </div>
                   </Link>
                 ))
@@ -82,7 +84,7 @@ const Header = () => {
           </div>
         </nav>
       </header>
-      
+
       <LeftSideBar leftSidebar={leftSidebar} setLeftSideBar={setLeftSideBar} />
       {SearchModalIsOpen && <SearchModelBox setSearchModalIsOpen={setSearchModalIsOpen} />}
       {modalIsOpen && <VideoModelBox setModelIsOpen={setModelIsOpen} />}
@@ -117,32 +119,36 @@ const navList = [
   },
   {
     name: 'Playlist',
-    link: '#'
+    link: '/playlist'
   },
   {
     name: 'Series',
-    link: '#'
+    link: '/series'
   },
   {
     name: 'Program Scheduling',
-    link: '#'
+    link: '/program-scheduling'
   }
 ]
 const navButons = [
   {
-    name: 'Pashto Tv',
-    link: '#'
+    name: 'Paigham',
+    link: 'https://youtu.be/xJVVLnGS4cI',
+    icon: '/images/tv_icon.png'
   },
   {
-    name: 'Sindhi tv',
-    link: '#'
+    name: 'Quran',
+    link: 'https://youtu.be/xJVVLnGS4cI',
+    icon: '/images/tv_icon.png'
   },
   {
-    name: 'pagham tv 2',
-    link: '#'
+    name: 'UK TV',
+    link: 'https://youtu.be/xJVVLnGS4cI',
+    icon: '/images/tv_icon.png'
   },
   {
-    name: 'pagham tv 3',
-    link: '#'
+    name: 'Pashto',
+    link: 'https://youtu.be/xJVVLnGS4cI',
+    icon: '/images/pashto_icon.png'
   }
 ]
