@@ -1,10 +1,6 @@
 
 import React from 'react'
-
 import { Helmet } from 'react-helmet';
-import Image from 'next/image';
-
-
 export default function Program_Scheduling() {
     return (
         <>
