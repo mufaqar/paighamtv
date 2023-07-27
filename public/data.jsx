@@ -81,7 +81,7 @@ export const footerNav = [
       },
       {
         name: 'Contact',
-        link: '#',
+        link: '/contact-us',
       },
       {
         name: 'Writing',
