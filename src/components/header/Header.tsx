@@ -133,7 +133,7 @@ const navList = [
 const navButons = [
   {
     name: 'Paigham',
-    link: 'https://youtu.be/xJVVLnGS4cI',
+    link: 'https://www.youtube.com/live/Z6wPPWr2nHM',
     icon: '/images/tv_icon.png'
   },
   {
@@ -148,7 +148,7 @@ const navButons = [
   },
   {
     name: 'Pashto',
-    link: 'https://youtu.be/xJVVLnGS4cI',
+    link: 'https://www.youtube.com/watch?v=AKfu9N3Mv9c',
     icon: '/images/pashto_icon.png'
   }
 ]
