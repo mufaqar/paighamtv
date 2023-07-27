@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { FaFacebookF, FaInstagram, FaTwitch, FaTwitter } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa'
 import { HiOutlineArrowRight } from 'react-icons/hi'
 import Logo from '../logo/Logo'
 import { footerNav } from '../../../public/data'
@@ -10,7 +10,7 @@ const Footer = () => {
           <footer className='bg-primary'>
                <div className='container mx-auto text-white px-4 py-16'>
                     <div className='sm:flex justify-between items-center'>
-                         <Socials/>
+                         <Socials />
                          <div>
                               <div className='bg-[#27396C] flex items-center mt-6 sm:mt-0'>
                                    <input className='bg-transparent w-full p-4 placeholder:font-metapro md:w-[400px] outline-none placeholder:font-normal placeholder:tracking-wider' placeholder="SUBCRIBE OUR NEWSLETTER" />
@@ -24,7 +24,7 @@ const Footer = () => {
                               footerNav.map((item, idx) => {
                                    return (
                                         <div key={idx}>
-                                             <h6 className="text-lg font-medium tracking-widest">{item.name}</h6>
+                                             <h6 className="text-lg font-medium tracking-widest uppercase">{item.name}</h6>
                                              <ul className='mt-4'>
                                                   {
                                                        item.nav.map((nav, id) => (
@@ -48,10 +48,10 @@ export default Footer
 export const Socials = () => {
      return (
           <div className="flex justify-center sm:justify-start space-x-5 text-3xl ">
-               <Link href="#" className='hover:text-secondary'><FaFacebookF /></Link>
-               <Link href="#" className='hover:text-secondary'><FaInstagram /></Link>
-               <Link href="#" className='hover:text-secondary'><FaTwitch /></Link>
-               <Link href="#" className='hover:text-secondary'><FaTwitter /></Link>
+               <Link href="http://facebook.com/paighamtv" target='_blank' className='hover:text-secondary'><FaFacebookF /></Link>
+               <Link href="http://instgram.com/paighamtv" target='_blank' className='hover:text-secondary'><FaInstagram /></Link>
+               <Link href="http://youtube.com/paighamtvofficial" target='_blank' className='hover:text-secondary'><FaYoutube /></Link>
+               <Link href="http://twitter.com/paighamtv" target='_blank' className='hover:text-secondary'><FaTwitter /></Link>
           </div>
      )
 }
