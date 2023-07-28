@@ -100,7 +100,7 @@ const LeftSideBar = ({ setLeftSideBar, leftSidebar }: any) => {
     <section className={`bg-primary text-white fixed max-w-[350px] w-full z-50 top-0 transition-all duration-300 ease-in-out h-full ${leftSidebar ? 'left-0' : '-left-full'}`}>
       <div className=' h-full w-full flex flex-col items-center relative p-8'>
         <Logo />
-        <p className='mt-4 text-center font-metapro mb-6'>Paigham TV is an Islamic educational channel television network. Its launched its Urdu language TV channel in 2011 and Pashto Channel was launched in 2014</p>
+        <p className='mt-4 text-center font-metapro mb-6'>Paigham TV is an Islamic educational channel television network. Its launched in Urdu language TV channel in 2011 and Pashto Channel was launched in 2014</p>
         <Socials />
         <Link href="/donate-us" className='mt-10 border border-secondary text-secondary hover:bg-secondary hover:text-black font-anton tracking-widest p-3 px-10'>Donate Us</Link>
         <img src="/images/bg-side.png" className='absolute bottom-0 opacity-20 left-0' alt="" />
