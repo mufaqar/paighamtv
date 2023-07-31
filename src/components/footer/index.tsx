@@ -47,8 +47,8 @@ export default Footer
 
 export const Socials = () => {
      return (
-          <div className="flex justify-center sm:justify-start space-x-5 text-3xl ">
-               <Link href="http://facebook.com/paighamtv" target='_blank' className='hover:text-secondary'><FaFacebookF /></Link>
+          <div className="flex justify-center sm:justify-start space-x-5 text-2xl ">
+               <Link href="http://facebook.com/paighamtv" target='_blank' className='hover:text-secondary'><FaFacebookF size={21}/></Link>
                <Link href="http://instgram.com/paighamtv" target='_blank' className='hover:text-secondary'><FaInstagram /></Link>
                <Link href="http://youtube.com/paighamtvofficial" target='_blank' className='hover:text-secondary'><FaYoutube /></Link>
                <Link href="http://twitter.com/paighamtv" target='_blank' className='hover:text-secondary'><FaTwitter /></Link>
