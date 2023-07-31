@@ -2,7 +2,17 @@
 import PageBanner from '@/components/pageBanner/PageBanner';
 import React from 'react'
 import { Helmet } from 'react-helmet';
-export default function Program_Scheduling() {
+import apolloClient from '@/config/client'
+import { programsScheduling } from '@/config/query'
+import { GetStaticProps } from 'next'
+
+
+
+
+export default function Program_Scheduling({ allProgramsScheduling }: any) {
+    console.log("🚀 ~ file: index.tsx:26 ~ Home ~ allProgramsScheduling:", allProgramsScheduling)
+
+
     return (
         <>
             <Helmet>
@@ -38,11 +48,31 @@ export default function Program_Scheduling() {
                 </div>
 
             </section>
+            <PaighamChannelPresents programs={allProgramsScheduling} />
 
 
 
         </>
     )
+}
+
+
+
+export const getStaticProps: GetStaticProps = async () => {
+    const [postsResponse, programs] = await Promise.all([
+
+        apolloClient.query({ query: programsScheduling }),
+    ]);
+
+    const allposts = postsResponse.data.posts.nodes;
+
+    const allProgramsScheduling = programs.data.programsScheduling.nodes
+    return {
+        props: {
+
+            allProgramsScheduling
+        },
+    };
 }
 
 
