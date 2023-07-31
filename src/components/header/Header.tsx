@@ -58,11 +58,11 @@ const Header = () => {
             <ul className='lg:flex items-center text-white lg:space-x-8 space-y-4 lg:space-y-0'>
               {
                 navList.map((item, idx) => (
-                  <li key={idx} className='font-metapro hover:text-secondary tracking-wide font-semibold capitalize text-lg text-pure' onClick={() => NavController(item.link)}>{item.name}</li>
+                  <li key={idx} className='font-metapro hover:text-secondary cursor-pointer tracking-wide font-semibold capitalize text-lg text-pure' onClick={() => NavController(item.link)}>{item.name}</li>
                 ))
               }
-              <li className="hidden md:block"><HiMenu size={28} onClick={() => setLeftSideBar(true)} /></li>
-              <li className="hidden md:block pr-4"><i className=''><FiSearch size={24} onClick={() => OpenSearch()} /></i></li>
+              <li className="hidden cursor-pointer md:block"><HiMenu size={28} onClick={() => setLeftSideBar(true)} /></li>
+              <li className="hidden cursor-pointer md:block pr-4"><i className=''><FiSearch size={24} onClick={() => OpenSearch()} /></i></li>
             </ul>
             <Link href="/donate-us" className='uppercase mt-5 lg:mt-0 text-base w-[200px] lg:w-auto hover:bg-orange inline-block text-center active:scale:105 hover:border-orange text-pure border px-5 py-[9.5px] font-anton tracking-widest border-pure'>Donate us</Link>
             <div className='text-white mt-5 lg:mt-0'>
