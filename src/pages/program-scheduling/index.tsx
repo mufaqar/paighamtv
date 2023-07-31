@@ -1,4 +1,5 @@
 
+import PageBanner from '@/components/pageBanner/PageBanner';
 import React from 'react'
 import { Helmet } from 'react-helmet';
 export default function Program_Scheduling() {
@@ -26,7 +27,7 @@ export default function Program_Scheduling() {
                 <meta name="twitter:data1" content="2 minutes" />
             </Helmet>
 
-
+            <PageBanner title="Program Scheduling" image="/images/main-image.png" />
             {/* Categories section  */}
             <section className='container mx-auto mb-28 px-4'>
                 {/* heading  */}

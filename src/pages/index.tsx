@@ -17,14 +17,13 @@ import { Scholars, VideosData, category } from '../../public/data'
 import { IScholorType } from '@/utils/types'
 import { Helmet } from 'react-helmet';
 import apolloClient from '@/config/client'
-import { AllPosts, Categories } from '@/config/query'
+import { AllPosts, Categories, programsScheduling } from '@/config/query'
 import { GetStaticProps } from 'next'
-
-
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({ allposts, allCategories }: any) {
+export default function Home({ allposts, allCategories, allProgramsScheduling }: any) {
+  console.log("🚀 ~ file: index.tsx:26 ~ Home ~ allProgramsScheduling:", allProgramsScheduling)
   return (
     <>
       <Helmet>
@@ -48,9 +47,9 @@ export default function Home({ allposts, allCategories }: any) {
         <meta name="twitter:label1" content="Est. reading time" />
         <meta name="twitter:data1" content="2 minutes" />
       </Helmet>
-      <Main />
+      <Main posts={allposts}/>
       <TabsSection />
-      <PaighamChannelPresents />
+      <PaighamChannelPresents programs={allProgramsScheduling} />
       {/* Categories section  */}
       <section className='container mx-auto mb-28 px-4'>
         {/* heading  */}
@@ -119,7 +118,7 @@ const TabsSection = () => {
             ))
           }
         </ul>
-        <Link href="#" className='uppercase hidden md:flex  hover:text-orange items-center space-x-2 font-metapro text-xl tracking-widest font-semibold'>
+        <Link href="#" className='uppercase hidden md:flex hover:text-orange items-center space-x-2 font-metapro text-xl tracking-widest font-semibold'>
           <span>View All</span>
           <HiOutlineArrowRight />
         </Link>
@@ -144,7 +143,7 @@ const TabsSection = () => {
 }
 
 // Paigham Channel Presents
-const PaighamChannelPresents = () => {
+const PaighamChannelPresents = ({programs}:any) => {
   const { setVideoLink } = useContext<any>(SettingsContext)
 
   const handleLink = (link: string) => {
@@ -163,16 +162,16 @@ const PaighamChannelPresents = () => {
             {/* top headings  */}
             <div className='font-semibold flex justify-between text-xl tracking-widest item-center'>
               <h5>TODAY'S GUIDE</h5>
-              <h5 className='text-secondary'>FULL GUIDE</h5>
+              <Link href="/program-scheduling"><h5 className='text-secondary'>FULL GUIDE</h5></Link>
             </div>
             <ul className='mt-5 '>
               {
-                PaighamChannelPresentsData.map((item, idx) => (
+                programs.map((item:any, idx:number) => (
                   <li key={idx} className='flex justify-between space-x-6 md:space-x-16 border-t-[1px] border-gray-500 py-5'>
-                    <time className='font-medium text-xl'>11:23</time>
-                    <button onClick={() => handleLink(getVideoCode(item.videoLink))}>
-                      <h6 className='text-secondary text-xl font-medium text-left -tracking-wide'>{item.name}</h6>
-                      <p className='text-left text-lg mt-2'>{item.shortInfo}</p>
+                    <time className='font-medium text-xl'>{item?.programInfo?.programTime || `0000`}</time>
+                    <button onClick={() => handleLink(getVideoCode(item?.programInfo?.videoUrl))}>
+                      <h6 className='text-secondary text-xl font-medium text-left -tracking-wide'>{item.title}</h6>
+                      <div className='text-left text-lg mt-2' dangerouslySetInnerHTML={{__html: item?.excerpt}}/>
                     </button>
                   </li>
                 ))
@@ -187,17 +186,20 @@ const PaighamChannelPresents = () => {
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [postsResponse, categories ] = await Promise.all([
+  const [postsResponse, categories, programs ] = await Promise.all([
     apolloClient.query({ query: AllPosts }),
     apolloClient.query({ query: Categories }),
+    apolloClient.query({ query: programsScheduling }),
   ]);
 
   const allposts = postsResponse.data.posts.nodes;
   const allCategories = categories.data.categories.nodes
+  const allProgramsScheduling = programs.data.programsScheduling.nodes
   return {
     props: {
       allposts,
-      allCategories
+      allCategories,
+      allProgramsScheduling
     },
   };
 }

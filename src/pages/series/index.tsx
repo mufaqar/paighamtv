@@ -1,4 +1,5 @@
 
+import PageBanner from '@/components/pageBanner/PageBanner';
 import React from 'react'
 import { Helmet } from 'react-helmet';
 export default function Series() {
@@ -26,7 +27,7 @@ export default function Series() {
                 <meta name="twitter:data1" content="2 minutes" />
             </Helmet>
 
-
+            <PageBanner title="Series" image="/images/main-image.png" />
             {/* Categories section  */}
             <section className='container mx-auto mb-28 px-4'>
                 {/* heading  */}
@@ -35,11 +36,7 @@ export default function Series() {
                     <div className='pt-6'>
                     </div>
                 </div>
-
             </section>
-
-
-
         </>
     )
 }

@@ -6,8 +6,9 @@ import { PiPlay } from 'react-icons/pi'
 import VideoModelBox from '../model-box/VideoModelBox';
 import { SettingsContext } from '@/context/setting-context';
 import ChannelLinks from '../header/channelLinks';
+import { getVideoCode } from '@/utils';
 
-const Main = () => {
+const Main = ({posts}:any) => {
   const slider = React.useRef<Slider>(null);
   const {modalIsOpen, setModelIsOpen, setVideoLink} = useContext(SettingsContext)
   const OpenVideo = (link:string) =>{
@@ -40,15 +41,14 @@ const Main = () => {
       <section className='sliceslider w-full absolute bottom-5 2xl:bottom-10 right-0'>
         <Slider {...SliderSlice}>
           {
-            imageSlide.map((item, idx) => {
+            posts.slice(10,20).map((item:any, idx:number) => {
               return (
-                <button onClick={()=>OpenVideo('ZMZcA5-09As')} key={idx} className=''>
-                  <Image src={item} alt="image" width={600} height={600} className='' />
+                <button onClick={()=>OpenVideo(getVideoCode(item?.postInfo?.tmVideoUrl))} key={idx} className=''>
+                  <Image src={item.featuredImage.node.mediaItemUrl} alt="image" width={600} height={600} className='' />
                 </button>
               )
             })
           }
-
         </Slider>
       </section>
       <ChannelLinks/>

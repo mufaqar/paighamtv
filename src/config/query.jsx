@@ -96,3 +96,17 @@ query Categories {
     }
   }
 }`;
+
+export const programsScheduling = gql`
+query programsScheduling {
+  programsScheduling(first: 3) {
+    nodes {
+      title
+      excerpt
+      programInfo {
+        videoUrl
+        programTime
+      }
+    }
+  }
+}`;

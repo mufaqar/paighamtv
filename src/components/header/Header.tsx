@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { HiMenu } from 'react-icons/hi';
 import { FiSearch } from 'react-icons/fi';
 import Logo from '../logo/Logo';
@@ -13,11 +13,14 @@ import { LeftSideBar } from './leftSideBar';
 import { Socials } from '../footer';
 import TopBar from './topBar';
 import useWindowScroll from  '@/hooks/useWindowScroll'
-
+import useWindowScreen from '@/hooks/useWindowScreen'
 
 const Header = () => {
   const [isMobileNav, setIsMobileNav] = useState(false)
   const [leftSidebar, setLeftSideBar] = useState(false)
+  const {isScrolled} = useWindowScroll()
+  const {dimensions} = useWindowScreen()
+
   const router = useRouter();
   const { SearchModalIsOpen, setSearchModalIsOpen, modalIsOpen, setModelIsOpen } = useContext(SettingsContext)
   const OpenSearch = () => {
@@ -26,9 +29,11 @@ const Header = () => {
 
   const NavController = (path: any) => {
     router.push(path)
-    setIsMobileNav(!isMobileNav)
+    if(dimensions?.width < 1024){
+      setIsMobileNav(!isMobileNav)
+    }
   }
-  const {isScrolled} = useWindowScroll()
+  
 
   return (
     <>
@@ -37,11 +42,11 @@ const Header = () => {
         {/* main nav   */}
         <nav className={`flex justify-between items-center py-4 px-6 z-50 ${isScrolled && 'bg-gradient-to-l  from-blue via-blue to-[#0F275E]'}`}> 
           <div className='text-pure flex items-center space-x-4'>
-            <div className='absolute top-2 left-10'>
+            <div className='absolute top-2 left-4'>
               <Logo />
             </div>
           </div>
-          <div className='text-white flex items-center gap-4'>
+          <div className='text-white flex items-center gap-4 z-10'>
           <button className='lg:hidden w-[33px] flex justify-center items-center h-[33px]' onClick={() => setIsMobileNav(!isMobileNav)}>
             {
               isMobileNav ? <RxCross1 size={30} className='text-white' /> : <RiMenu5Fill size={32} className='text-white' />
@@ -49,7 +54,7 @@ const Header = () => {
           </button>
           <i className='lg:hidden'><FiSearch size={24} onClick={() => OpenSearch()} /></i>
           </div>
-          <div className={`lg:flex items-center lg:space-x-3 ${isMobileNav ? 'block absolute top-[65px] p-6 pt-16 pb-10 left-0 right-0 z-[1] bg-primary' : 'hidden'}`}>
+          <div className={`lg:flex items-center lg:space-x-3 ${isMobileNav ? 'block absolute top-[0px] p-6 pt-36 md:pt-40 pb-10 left-0 right-0 z-[1] bg-primary' : 'hidden'}`}>
             <ul className='lg:flex items-center text-white lg:space-x-8 space-y-4 lg:space-y-0'>
               {
                 navList.map((item, idx) => (
