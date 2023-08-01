@@ -1,10 +1,12 @@
 
 import PageBanner from '@/components/pageBanner/PageBanner';
-import React from 'react'
+
 import { Helmet } from 'react-helmet';
 import apolloClient from '@/config/client'
 import { programsScheduling } from '@/config/query'
 import { GetStaticProps } from 'next'
+import React, { useContext } from 'react'
+import { useState } from 'react'
 
 
 
@@ -48,13 +50,56 @@ export default function Program_Scheduling({ allProgramsScheduling }: any) {
                 </div>
 
             </section>
-            <PaighamChannelPresents programs={allProgramsScheduling} />
+
 
 
 
         </>
     )
 }
+
+// Paigham Channel Presents
+const PaighamChannelPresents = ({ programs }: any) => {
+    const { setVideoLink } = useContext<any>(SettingsContext)
+
+    const handleLink = (link: string) => {
+        setVideoLink(link)
+    }
+
+    return (
+        <section className='bg-primary mt-20'>
+            <div className='container font-metapro mx-auto px-4 text-white py-16'>
+                <h2 className=' text-3xl text-center md:text-5xl font-bold'>Paigham Channel Presents</h2>
+                <div className='md:flex mt-10 md:space-x-10'>
+                    <div className='md:w-[60%]'>
+                        <VideoPlayer />
+                    </div>
+                    <div className="md:w-[40%] mt-5 md:mt-0">
+                        {/* top headings  */}
+                        <div className='font-semibold flex justify-between text-xl tracking-widest item-center'>
+                            <h5>TODAY'S GUIDE</h5>
+                            <Link href="/program-scheduling"><h5 className='text-secondary'>FULL GUIDE</h5></Link>
+                        </div>
+                        <ul className='mt-5 '>
+                            {
+                                programs.map((item: any, idx: number) => (
+                                    <li key={idx} className='flex justify-between space-x-6 md:space-x-16 border-t-[1px] border-gray-500 py-5'>
+                                        <time className='font-medium text-xl'>{item?.programInfo?.programTime || `0000`}</time>
+                                        <button onClick={() => handleLink(getVideoCode(item?.programInfo?.videoUrl))}>
+                                            <h6 className='text-secondary text-xl font-medium text-left -tracking-wide'>{item.title}</h6>
+                                            <div className='text-left text-lg mt-2' dangerouslySetInnerHTML={{ __html: item?.excerpt }} />
+                                        </button>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
 
 
 
@@ -64,7 +109,7 @@ export const getStaticProps: GetStaticProps = async () => {
         apolloClient.query({ query: programsScheduling }),
     ]);
 
-    const allposts = postsResponse.data.posts.nodes;
+
 
     const allProgramsScheduling = programs.data.programsScheduling.nodes
     return {
