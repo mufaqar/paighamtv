@@ -2,11 +2,23 @@
 import PageBanner from '@/components/pageBanner/PageBanner';
 import React from 'react'
 import { Helmet } from 'react-helmet';
-import Link from 'next/link'
-import { HiOutlineArrowRight } from 'react-icons/hi'
+
 import { category } from '../../../public/data'
 import CategoryCard from '@/components/category-card/CategoryCard'
-export default function Series() {
+import { GetStaticProps } from 'next'
+import apolloClient from '@/config/client'
+
+import { Categories } from '@/config/query'
+
+
+
+
+
+
+
+
+export default function Series({ allCategories }: any) {
+    console.log(" ~ allCategories:", allCategories)
     return (
         <>
             <Helmet>
@@ -38,7 +50,7 @@ export default function Series() {
 
                 <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
                     {
-                        category.map((item, idx) => (
+                        allCategories.map((item: any, idx: any) => (
                             <CategoryCard key={idx} item={item} />
                         ))
                     }
@@ -52,4 +64,23 @@ export default function Series() {
     )
 }
 
+
+export const getStaticProps: GetStaticProps = async () => {
+    const [categories] = await Promise.all([
+
+        apolloClient.query({ query: Categories }),
+
+    ]);
+
+
+    const allCategories = categories.data.categories.nodes
+
+    return {
+        props: {
+
+            allCategories,
+
+        },
+    };
+}
 
