@@ -62,7 +62,7 @@ export default function Home({ allposts, allCategories, allProgramsScheduling }:
         </div>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
           {
-            category.map((item, idx) => (
+            allCategories.slice(0, 4).map((item: any, idx: any) => (
               <CategoryCard key={idx} item={item} />
             ))
           }
