@@ -47,7 +47,7 @@ export default function Home({ allposts, allCategories, allProgramsScheduling }:
         <meta name="twitter:label1" content="Est. reading time" />
         <meta name="twitter:data1" content="2 minutes" />
       </Helmet>
-      <Main posts={allposts}/>
+      <Main posts={allposts} />
       <TabsSection />
       <PaighamChannelPresents programs={allProgramsScheduling} />
       {/* Categories section  */}
@@ -69,7 +69,7 @@ export default function Home({ allposts, allCategories, allProgramsScheduling }:
         </div>
       </section>
       {/* videos section  */}
-      <VideoSection allposts={allposts} allCategories={allCategories}/>
+      <VideoSection allposts={allposts} allCategories={allCategories} />
       {/* Scholar section  */}
       <section className='container mx-auto mb-28 px-4'>
         {/* heading  */}
@@ -143,7 +143,7 @@ const TabsSection = () => {
 }
 
 // Paigham Channel Presents
-const PaighamChannelPresents = ({programs}:any) => {
+const PaighamChannelPresents = ({ programs }: any) => {
   const { setVideoLink } = useContext<any>(SettingsContext)
 
   const handleLink = (link: string) => {
@@ -166,12 +166,12 @@ const PaighamChannelPresents = ({programs}:any) => {
             </div>
             <ul className='mt-5 '>
               {
-                programs.map((item:any, idx:number) => (
+                programs.map((item: any, idx: number) => (
                   <li key={idx} className='flex justify-between space-x-6 md:space-x-16 border-t-[1px] border-gray-500 py-5'>
                     <time className='font-medium text-xl'>{item?.programInfo?.programTime || `0000`}</time>
                     <button onClick={() => handleLink(getVideoCode(item?.programInfo?.videoUrl))}>
                       <h6 className='text-secondary text-xl font-medium text-left -tracking-wide'>{item.title}</h6>
-                      <div className='text-left text-lg mt-2' dangerouslySetInnerHTML={{__html: item?.excerpt}}/>
+                      <div className='text-left text-lg mt-2' dangerouslySetInnerHTML={{ __html: item?.excerpt }} />
                     </button>
                   </li>
                 ))
@@ -186,7 +186,7 @@ const PaighamChannelPresents = ({programs}:any) => {
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [postsResponse, categories, programs ] = await Promise.all([
+  const [postsResponse, categories, programs] = await Promise.all([
     apolloClient.query({ query: AllPosts }),
     apolloClient.query({ query: Categories }),
     apolloClient.query({ query: programsScheduling }),
@@ -222,21 +222,3 @@ const tabData = [
   },
 ]
 
-const PaighamChannelPresentsData = [
-  {
-    name: 'Al Aqsa Live',
-    shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
-    videoLink: 'https://www.youtube.com/watch?v=ZMZcA5-09As'
-  },
-  {
-    name: 'Al Aqsa Live 2',
-    shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
-    videoLink: 'https://www.youtube.com/watch?v=xjGJ5wYs8AQ'
-  },
-  {
-    name: 'Al Aqsa Live 3',
-    shortInfo: 'Hear the Friday Sermon from Al Aqsa every Friday with the English translation.',
-    videoLink: 'https://www.youtube.com/watch?v=EfZDFrZfJow'
-  },
-
-]

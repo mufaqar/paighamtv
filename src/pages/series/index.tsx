@@ -2,6 +2,10 @@
 import PageBanner from '@/components/pageBanner/PageBanner';
 import React from 'react'
 import { Helmet } from 'react-helmet';
+import Link from 'next/link'
+import { HiOutlineArrowRight } from 'react-icons/hi'
+import { category } from '../../../public/data'
+import CategoryCard from '@/components/category-card/CategoryCard'
 export default function Series() {
     return (
         <>
@@ -29,19 +33,23 @@ export default function Series() {
 
             <PageBanner title="Series" image="/images/main-image.png" />
             {/* Categories section  */}
-            <section className='container mx-auto mb-28 px-4'>
-                {/* heading  */}
-                <div className=' justify-between items-center mt-20 mb-10  '>
-                    <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold border-b-[3px] border-darkgray  pb-5'>Series </h2>
-                    <div className='pt-6'>
-                    </div>
+
+            <section className='container mx-auto mb-28 px-4 mt-20'>
+
+                <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
+                    {
+                        category.map((item, idx) => (
+                            <CategoryCard key={idx} item={item} />
+                        ))
+                    }
                 </div>
             </section>
+
+
+
+
         </>
     )
 }
-
-
-
 
 
