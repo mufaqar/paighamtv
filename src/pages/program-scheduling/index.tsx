@@ -1,7 +1,7 @@
 
 import PageBanner from '@/components/pageBanner/PageBanner';
 
-//import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import apolloClient from '@/config/client'
 import { programsScheduling } from '@/config/query'
 import { GetStaticProps } from 'next'
@@ -64,7 +64,7 @@ export default function Program_Scheduling({ allProgramsScheduling }: any) {
 
     return (
         <>
-            {/* <Helmet>
+            <Helmet>
                 <title>Program Scheduling - Paigham TV</title>
                 <meta name="description" content="Paigham TV is an Islamic educational channel television network. It launched its Urdu language TV channel in 2011. The production of this channel is based on the teachings of Quran o Sunnah. A team of Islamic scholars monitors the material presented on its programs. Each program of Paigham TV is previewed according to authentic references of Quran o Hadees." />
                 <link rel="canonical" href="https://paigham.tv/" />
@@ -84,7 +84,7 @@ export default function Program_Scheduling({ allProgramsScheduling }: any) {
                 <meta name="twitter:site" content="@paighamtv" />
                 <meta name="twitter:label1" content="Est. reading time" />
                 <meta name="twitter:data1" content="2 minutes" />
-            </Helmet> */}
+            </Helmet>
 
             <PageBanner title="Program Scheduling" image="/images/main-image.png" />
             {/* Categories section  */}
