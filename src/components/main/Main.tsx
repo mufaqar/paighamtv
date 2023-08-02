@@ -8,14 +8,14 @@ import { SettingsContext } from '@/context/setting-context';
 import ChannelLinks from '../header/channelLinks';
 import { getVideoCode } from '@/utils';
 
-const Main = ({posts}:any) => {
+const Main = ({ posts }: any) => {
   const slider = React.useRef<Slider>(null);
-  const {modalIsOpen, setModelIsOpen, setVideoLink} = useContext(SettingsContext)
-  const OpenVideo = (link:string) =>{
+  const { modalIsOpen, setModelIsOpen, setVideoLink } = useContext(SettingsContext)
+  const OpenVideo = (link: string) => {
     setModelIsOpen(true)
     setVideoLink(link)
   }
-  
+
 
   return (
     <main className='relative h-[calc(100vh-40px)] -mt-[65px] lg:-mt-[77px]'>
@@ -25,10 +25,10 @@ const Main = ({posts}:any) => {
             return (
               <div key={idx} className='relative w-full bg-[url("/images/main-image.png")] p-2 h-[calc(100vh-40px)] bg-cover bg-no-repeat'              >
                 <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
-                  <h1 className='text-4xl  text-center md:text-left md:text-[60px] font-bold text mb-4'>Knowledge Program</h1>
-                  <span className='tracking-widest'>EPISODE 15</span>
-                  <p className='tracking-wider px-10 text-center md:text-left md:px-0 text-lg mt-4 max-w-[600px]'>Knowledge Programmed aims to contribute to a society's sustainable and inclusive development.</p>
-                  <button onClick={()=>OpenVideo('ZMZcA5-09As')} className="inline-flex active:scale-105 hover:bg-primary hover:text-white mt-10 item-center space-x-2 bg-secondary text-darkgray font-anton px-8 py-3 uppercase tracking-widest text-lg">
+                  <h1 className='text-4xl  text-center md:text-left md:text-[60px] font-bold text mb-4'>Paigham TV</h1>
+                  <span className='tracking-widest'> Live</span>
+                  <p className='tracking-wider px-10 text-center md:text-left md:px-0 text-lg mt-4 max-w-[600px]'>The main motive of Paigham TV is to make the idle environment back to its place as a pure Muslim nation</p>
+                  <button onClick={() => OpenVideo('qpv2tWD8Rm4')} className="inline-flex active:scale-105 hover:bg-primary hover:text-white mt-10 item-center space-x-2 bg-secondary text-darkgray font-anton px-8 py-3 uppercase tracking-widest text-lg">
                     <PiPlay size={25} className="mt-[1px]" />
                     <span>Watch Now</span>
                   </button>
@@ -41,9 +41,9 @@ const Main = ({posts}:any) => {
       <section className='sliceslider w-full absolute bottom-5 2xl:bottom-10 right-0'>
         <Slider {...SliderSlice}>
           {
-            posts.slice(10,20).map((item:any, idx:number) => {
+            posts.slice(10, 20).map((item: any, idx: number) => {
               return (
-                <button onClick={()=>OpenVideo(getVideoCode(item?.postInfo?.tmVideoUrl))} key={idx} className=''>
+                <button onClick={() => OpenVideo(getVideoCode(item?.postInfo?.tmVideoUrl))} key={idx} className=''>
                   <Image src={item.featuredImage.node.mediaItemUrl} alt="image" width={600} height={600} className='' />
                 </button>
               )
@@ -51,10 +51,10 @@ const Main = ({posts}:any) => {
           }
         </Slider>
       </section>
-      <ChannelLinks/>
+      <ChannelLinks />
       <button className="absolute top-1/2 left-1 md:left-2 transform -translate-y-1/2 bg-dark-gray active:scale-105 text-yellow text-xl p-[6px] px-1.5 md:px-5 " onClick={() => slider?.current?.slickPrev()}><Image src="/svg/left-slider-arrow.svg" alt="arrow" width={60} height={60} className='w-7 md:w-16' /></button>
       <button className="absolute top-1/2 right-1 md:right-2 transform -translate-y-1/2 bg-dark-gray active:scale-105 text-yellow text-xl p-[6px] px-1.5 md:px-5 " onClick={() => slider?.current?.slickNext()}><Image src="/svg/right-slider-arrow.svg" alt="arrow" width={60} height={60} className='w-7 md:w-16' /></button>
-      { modalIsOpen && <VideoModelBox setModelIsOpen={setModelIsOpen} />}
+      {modalIsOpen && <VideoModelBox setModelIsOpen={setModelIsOpen} />}
 
     </main>
   )
@@ -110,5 +110,5 @@ const SliderSlice = {
 
 
 const imageSlide = [
-  "/images/sli1.png","/images/sli2.png","/images/sli3.png","/images/sli1.png","/images/sli2.png","/images/sli3.png","/images/sli2.png","/images/sli3.png","/images/sli1.png","/images/sli2.png","/images/sli3.png",  "/images/sli1.png","/images/sli2.png","/images/sli3.png","/images/sli1.png","/images/sli2.png","/images/sli3.png","/images/sli2.png","/images/sli3.png","/images/sli1.png","/images/sli2.png","/images/sli3.png"
+  "/images/sli1.png", "/images/sli2.png", "/images/sli3.png", "/images/sli1.png", "/images/sli2.png", "/images/sli3.png", "/images/sli2.png", "/images/sli3.png", "/images/sli1.png", "/images/sli2.png", "/images/sli3.png", "/images/sli1.png", "/images/sli2.png", "/images/sli3.png", "/images/sli1.png", "/images/sli2.png", "/images/sli3.png", "/images/sli2.png", "/images/sli3.png", "/images/sli1.png", "/images/sli2.png", "/images/sli3.png"
 ]
