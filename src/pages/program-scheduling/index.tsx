@@ -22,7 +22,7 @@ const PaighamChannelPresents = ({ programs }: any) => {
 
     return (
         <section className='bg-white'>
-            <div className='container font-metapro mx-auto px-4 text-black py-16'>
+            <div className='container font-metapro mx-auto px-4 text-primary py-16'>
                 <h2 className=' text-3xl text-center md:text-5xl font-bold'>Paigham Channel Presents</h2>
                 <div className='md:flex mt-10 md:space-x-10'>
                     <div className='md:w-[60%]'>
@@ -32,15 +32,15 @@ const PaighamChannelPresents = ({ programs }: any) => {
                         {/* top headings  */}
                         <div className='font-semibold flex justify-between text-xl tracking-widest item-center'>
                             <h5>TODAY'S GUIDE</h5>
-                            <Link href="/program-scheduling"><h5 className='text-secondary'>FULL GUIDE</h5></Link>
+                            <Link href="/program-scheduling"><h5 className='text-primary'>FULL GUIDE</h5></Link>
                         </div>
                         <ul className='mt-5 '>
                             {
                                 programs.map((item: any, idx: number) => (
-                                    <li key={idx} className='flex justify-between space-x-6 md:space-x-16 border-t-[1px] border-gray-500 py-5'>
+                                    <li key={idx} className='flex justify-between space-x-6 md:space-x-16 border-t-[1px] border-gray-300 py-5'>
                                         <time className='font-medium text-xl'>{item?.programInfo?.programTime || `0000`}</time>
                                         <button onClick={() => handleLink(getVideoCode(item?.programInfo?.videoUrl))}>
-                                            <h6 className='text-secondary text-xl font-medium text-left -tracking-wide'>{item.title}</h6>
+                                            <h6 className='text-primary text-xl font-medium text-left -tracking-wide'>{item.title}</h6>
                                             <div className='text-left text-lg mt-2' dangerouslySetInnerHTML={{ __html: item?.excerpt }} />
                                         </button>
                                     </li>
