@@ -18,7 +18,7 @@ import { Categories } from '@/config/query'
 
 
 export default function Series({ allCategories }: any) {
-    console.log(" ~ allCategories:", allCategories)
+    //   console.log(" ~ allCategories:", allCategories)
     return (
         <>
             <Helmet>
@@ -44,8 +44,6 @@ export default function Series({ allCategories }: any) {
             </Helmet>
 
             <PageBanner title="Series" image="/images/main-image.png" />
-            {/* Categories section  */}
-
             <section className='container mx-auto mb-28 px-4 mt-20'>
 
                 <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
@@ -67,19 +65,12 @@ export default function Series({ allCategories }: any) {
 
 export const getStaticProps: GetStaticProps = async () => {
     const [categories] = await Promise.all([
-
         apolloClient.query({ query: Categories }),
-
     ]);
-
-
     const allCategories = categories.data.categories.nodes
-
     return {
         props: {
-
-            allCategories,
-
+            allCategories
         },
     };
 }
