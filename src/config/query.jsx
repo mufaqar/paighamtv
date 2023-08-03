@@ -118,3 +118,19 @@ export const programsScheduling = gql`
     }
   }
 `;
+
+export const AllScholars = gql`
+  query AllScholars {
+    scholars {
+      nodes {
+        slug
+        title
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+`;
