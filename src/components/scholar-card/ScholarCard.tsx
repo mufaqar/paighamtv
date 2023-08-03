@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 
 const ScholarCard = ({ item }: any) => {
-  console.log(item);
+  // console.log(item);
   return (
     <div className='bg-red-300 relative group overflow-hidden'>
       <Image src={item?.featuredImage?.node?.mediaItemUrl} alt="image" width={700} height={700} className='w-full object-cover transition-all duration-200 ease-in-out group-hover:scale-105' />

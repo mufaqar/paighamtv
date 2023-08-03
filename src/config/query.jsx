@@ -134,3 +134,19 @@ export const AllScholars = gql`
     }
   }
 `;
+
+export const AllPlaylist = gql`
+  query AllPlaylist {
+    playLists {
+      nodes {
+        slug
+        title
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+`;

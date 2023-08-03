@@ -29,7 +29,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const [scholars] = await Promise.all([
     apolloClient.query({ query: AllScholars })
   ]);
-
   const allScholars = scholars.data.scholars.nodes
   return {
     props: {
