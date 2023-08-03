@@ -4,7 +4,7 @@ import React from 'react'
 const Playlist = () => {
   return (
     <>
-    <PageBanner title="Playlist" image="/images/main-image.png" />
+      <PageBanner title="Play List" image="/images/main-image.png" />
     </>
   )
 }
