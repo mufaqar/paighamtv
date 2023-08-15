@@ -23,7 +23,7 @@ const Main = ({ posts }: any) => {
         {
           [1, 2, 3].map((slide, idx) => {
             return (
-              <div key={idx} className='relative w-full bg-[url("/images/main-image.png")] p-2 h-[calc(100vh-40px)] bg-cover bg-no-repeat'              >
+              <div key={idx} className='relative w-full bg-[url("/images/main-image.jpg")] p-2 h-[calc(100vh-40px)] bg-cover bg-no-repeat'              >
                 <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
                   <h1 className='text-4xl  text-center md:text-left md:text-[60px] font-bold text mb-4'>Paigham TV</h1>
                   <span className='tracking-widest'> Live</span>

@@ -150,3 +150,21 @@ export const AllPlaylist = gql`
     }
   }
 `;
+
+// post by category pass category slug in qury
+export const PostsByScholar = gql`
+  query PostsByScholar {
+    posts(
+      where: {
+        metaQuery: {
+          metaArray: { key: "actor_id", compare: LIKE, value: "953" }
+        }
+      }
+    ) {
+      nodes {
+        title
+        content
+      }
+    }
+  }
+`;
