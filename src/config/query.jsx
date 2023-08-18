@@ -161,7 +161,7 @@ export const PostsByScholar = gql`
           metaArray: { key: "actor_id", compare: LIKE, value: $sid }
         }
       }
-      first: 100
+      first: 99
     ) {
       nodes {
         title
