@@ -82,7 +82,7 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
         </div>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
           {
-            Scholars.slice(0, 4).map((item: IScholorType, idx: number) => (
+            Scholars.slice(0, 8).map((item: IScholorType, idx: number) => (
               <ScholarCard key={idx} item={item} />
             ))
           }
