@@ -19,7 +19,7 @@ const Card = ({ item, OpenVideo }: any) => {
                          </div>
 
                     </div>
-                    <h4 className='text-white md:text-lg font-medium md:px-4 text-center tracking-wide my-3'>{item.title}</h4>
+                    <h4 className='text-white md:text-lg font-medium md:px-2 text-center tracking-wide my-3'>{item.title}</h4>
 
                </div>
 

@@ -4,13 +4,13 @@ import { HiOutlineArrowRight } from 'react-icons/hi'
 import { SettingsContext } from '@/context/setting-context'
 import Card from './card'
 
-const VideoSection = ({allCategories, allposts}:any) => {
+const VideoSection = ({ allCategories, allposts }: any) => {
      const [activeCategory, setActiveCategory] = useState('')
-     const [posts, setPost] = useState<any>(allposts.slice(0,8))
+     const [posts, setPost] = useState<any>(allposts.slice(0, 8))
      const HandleVideosCategoryTabs = (slug: string) => {
           setActiveCategory(slug)
-          const p = allposts.filter((item:any)=>item.categories.nodes.some((item:any)=>item.slug === slug)         )
-          setPost(p.slice(0,8))
+          const p = allposts.filter((item: any) => item.categories.nodes.some((item: any) => item.slug === slug))
+          setPost(p.slice(0, 8))
      }
 
      const { setModelIsOpen, setVideoLink } = useContext(SettingsContext)
@@ -33,20 +33,20 @@ const VideoSection = ({allCategories, allposts}:any) => {
                     </div>
                     <ul className='flex justify-between  text-white overflow-x-scroll xl:overflow-x-hidden font-metapro font-medium border-b-[1px] border-gray-500'>
                          {
-                              allCategories?.slice(0,8)?.map((item:any, idx:number) => (
+                              allCategories?.slice(0, 8)?.map((item: any, idx: number) => (
                                    <li key={idx} className={`${activeCategory === item.slug && 'bg-secondary px-4 text-primary '} flex-1 py-2 flex justify-center min-w-[140px] cursor-pointer items-center`} onClick={() => HandleVideosCategoryTabs(item?.slug)}>{item.name}</li>
                               ))
                          }
                     </ul>
-                    <div className='grid grid-cols-2 lg:grid-cols-4 mt-10 gap-4'>
+                    <div className='grid grid-cols-2 lg:grid-cols-4 mt-10 gap-2'>
                          {
-                              posts?.map((item:any, idx: number) => (
-                                   <Card item={item} key={idx} OpenVideo={OpenVideo}/>
+                              posts?.map((item: any, idx: number) => (
+                                   <Card item={item} key={idx} OpenVideo={OpenVideo} />
                               ))
                          }
                     </div>
                </div>
-               
+
           </section>
      )
 }
