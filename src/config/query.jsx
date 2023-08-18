@@ -152,7 +152,6 @@ export const AllPlaylist = gql`
   }
 `;
 
-// post by category pass category slug in qury
 export const PostsByScholar = gql`
   query PostsByScholar($sid: String = "") {
     posts(
