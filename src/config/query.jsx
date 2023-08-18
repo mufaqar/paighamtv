@@ -125,6 +125,7 @@ export const AllScholars = gql`
       nodes {
         slug
         title
+        databaseId
         featuredImage {
           node {
             mediaItemUrl

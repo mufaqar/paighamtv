@@ -13,16 +13,16 @@ import VideoPlayer from '@/components/video-player/VideoPlayer'
 import { getVideoCode } from '../utils'
 import { SettingsContext } from '@/context/setting-context'
 import React, { useContext } from 'react'
-import { Scholars, VideosData, category } from '../../public/data'
+import { VideosData, category } from '../../public/data'
 import { IScholorType } from '@/utils/types'
 import { Helmet } from 'react-helmet';
 import apolloClient from '@/config/client'
-import { AllPosts, Categories, programsScheduling } from '@/config/query'
+import { AllPosts, Categories, programsScheduling, AllScholars } from '@/config/query'
 import { GetStaticProps } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({ allposts, allCategories, allProgramsScheduling }: any) {
+export default function Home({ allposts, allCategories, allProgramsScheduling, Scholars }: any) {
   console.log("🚀 ~ file: index.tsx:26 ~ Home ~ allProgramsScheduling:", allProgramsScheduling)
   return (
     <>
@@ -82,7 +82,7 @@ export default function Home({ allposts, allCategories, allProgramsScheduling }:
         </div>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
           {
-            Scholars.map((item: IScholorType, idx: number) => (
+            Scholars.slice(0, 4).map((item: IScholorType, idx: number) => (
               <ScholarCard key={idx} item={item} />
             ))
           }
@@ -186,20 +186,25 @@ const PaighamChannelPresents = ({ programs }: any) => {
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [postsResponse, categories, programs] = await Promise.all([
+  const [postsResponse, categories, programs, Scholars_Res] = await Promise.all([
     apolloClient.query({ query: AllPosts }),
     apolloClient.query({ query: Categories }),
     apolloClient.query({ query: programsScheduling }),
+    apolloClient.query({ query: AllScholars }),
+
+
   ]);
 
   const allposts = postsResponse.data.posts.nodes;
   const allCategories = categories.data.categories.nodes
   const allProgramsScheduling = programs.data.programsScheduling.nodes
+  const Scholars = Scholars_Res.data.scholars.nodes
   return {
     props: {
       allposts,
       allCategories,
-      allProgramsScheduling
+      allProgramsScheduling,
+      Scholars
     },
   };
 }
