@@ -155,12 +155,13 @@ export const AllPlaylist = gql`
 // post by category pass category slug in qury
 export const PostsByScholar = gql`
   query PostsByScholar($sid: String = "") {
-    posts(first: 100) (
+    posts(
       where: {
         metaQuery: {
           metaArray: { key: "actor_id", compare: LIKE, value: $sid }
         }
       }
+      first: 100
     ) {
       nodes {
         title
