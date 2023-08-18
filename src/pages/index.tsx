@@ -20,12 +20,31 @@ import apolloClient from '@/config/client'
 import { AllPosts, Categories, programsScheduling, AllScholars } from '@/config/query'
 import { GetStaticProps } from 'next'
 import Card from '@/components/video-section/card'
-
+import FacebookPlayer from 'react-facebook-player';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({ allposts, allCategories, allProgramsScheduling, Scholars }: any) {
-  console.log("🚀 ~ file: index.tsx:26 ~ Home ~ allProgramsScheduling:", allCategories)
+  console.log("🚀 ~ file: index.tsx:26 ~ Home ~ allProgramsScheduling:", allCategories);
+
+  const [state, setState] = useState<any>({ player: null });
+
+  const onReady = (player: any) => {
+    setState({
+      player: player,
+    });
+  }
+
+  // playVideo = () => {
+  //   const { player } = this.state;
+  //   if (player) player.play();
+  // }
+
+  // pauseVideo = () => {
+  //   const { player } = this.state;
+  //   if (player) player.pause();
+  // }
+
   return (
     <>
       <Helmet>
@@ -54,6 +73,20 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
       <PaighamChannelPresents programs={allProgramsScheduling} />
       {/* Categories section  */}
       <section className='container mx-auto mb-28 px-4'>
+
+        <div>
+          <FacebookPlayer
+            videoId="759083209038242"
+            appId="1731606113949263"
+            onReady={onReady}
+          />
+          {/* <button onClick={playVideo}>Play</button>
+          <button onClick={pauseVideo}>Pause</button> */}
+
+        </div>
+
+
+
         {/* heading  */}
         <div className='flex justify-between items-center mt-20 mb-10 border-b-[3px] border-darkgray pb-5'>
           <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold'>Categories</h2>
