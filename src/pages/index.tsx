@@ -19,11 +19,13 @@ import { Helmet } from 'react-helmet';
 import apolloClient from '@/config/client'
 import { AllPosts, Categories, programsScheduling, AllScholars } from '@/config/query'
 import { GetStaticProps } from 'next'
+import Card from '@/components/video-section/card'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({ allposts, allCategories, allProgramsScheduling, Scholars }: any) {
-  console.log("🚀 ~ file: index.tsx:26 ~ Home ~ allProgramsScheduling:", allProgramsScheduling)
+  console.log("🚀 ~ file: index.tsx:26 ~ Home ~ allProgramsScheduling:", allCategories)
   return (
     <>
       <Helmet>
@@ -48,7 +50,7 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
         <meta name="twitter:data1" content="2 minutes" />
       </Helmet>
       <Main posts={allposts} />
-      <TabsSection />
+      <TabsSection allposts={allposts} allCategories={allCategories} />
       <PaighamChannelPresents programs={allProgramsScheduling} />
       {/* Categories section  */}
       <section className='container mx-auto mb-28 px-4'>
@@ -97,10 +99,13 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
 
 
 // Tabs section 
-const TabsSection = () => {
-  const [activeCategory, setActiveCategory] = useState('news-videos')
-  const HandleVideosCategoryTabs = (slug: any) => {
+const TabsSection = ({ allposts }: any) => {
+  const [posts, setPost] = useState<any>(allposts.slice(0, 4))
+  const [activeCategory, setActiveCategory] = useState('tafseer-ul-quran')
+  const HandleVideosCategoryTabs = (slug: string) => {
     setActiveCategory(slug)
+    const p = allposts.filter((item: any) => item.categories.nodes.some((item: any) => item.slug === slug))
+    setPost(p.slice(0, 8))
   }
   const { modalIsOpen, setModelIsOpen, setVideoLink } = useContext(SettingsContext)
   const OpenVideo = (link: string) => {
@@ -124,20 +129,15 @@ const TabsSection = () => {
         </Link>
       </div>
       {/* articles  */}
-      <div className='grid grid-cols-2 lg:grid-cols-4 mt-10 gap-4'>
+
+      <div className='grid grid-cols-2 lg:grid-cols-4 mt-10 gap-2'>
         {
-          VideosData.slice(0, 4).map((item, idx) => (
-            <div className='bg-red-300 relative group overflow-hidden' key={idx}>
-              <Image src={item.image} alt="image" width={700} height={700} className='w-full object-cover transition-all duration-200 ease-in-out group-hover:scale-105' />
-              <div className='bg-gradient-to-t from-black via-black/50 absolute inset-0 p-3 md:p-6 flex flex-col justify-end font-metapro to-black/0'>
-                <button onClick={() => OpenVideo(getVideoCode(item.videolink))} className='bg-secondary opacity-75 hover:scale-105 p-2 pl-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'>
-                  <PiPlay size={50} />
-                </button>
-              </div>
-            </div>
+          posts?.map((item: any, idx: number) => (
+            <Card item={item} key={idx} OpenVideo={OpenVideo} />
           ))
         }
       </div>
+
     </section>
   )
 }
