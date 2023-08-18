@@ -1,30 +1,8 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import Main from '@/components/main/Main'
-import Link from 'next/link'
-import { HiOutlineArrowRight } from 'react-icons/hi'
-import CategoryCard from '@/components/category-card/CategoryCard'
-import ScholarCard from '@/components/scholar-card/ScholarCard'
-import DonateNow from '@/components/donateNow/DonateNow'
-import VideoSection from '@/components/video-section/VideoSection'
-import { useState } from 'react'
-import { PiPlay } from 'react-icons/pi'
-import VideoPlayer from '@/components/video-player/VideoPlayer'
-
-import { SettingsContext } from '@/context/setting-context'
-import React, { useContext } from 'react'
-
-import { IScholorType } from '@/utils/types'
+import React from 'react'
 import { Helmet } from 'react-helmet';
-import apolloClient from '@/config/client'
-import { AllPosts, Categories } from '@/config/query'
-import { GetStaticProps } from 'next'
 
 
-
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Donate_us({ allposts, allCategories }: any) {
+export default function Donate_us() {
     return (
         <>
             <Helmet>
