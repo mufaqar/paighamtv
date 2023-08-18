@@ -8,8 +8,9 @@ import { GetStaticPaths, GetServerSideProps } from 'next'
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react'
 
-const SingleScholar = ({ posts }: any) => {
+const SingleScholar = ({ posts, slug }: any) => {
   // const { name, posts: { nodes } } = posts
+
 
   console.log(posts);
 
@@ -21,7 +22,7 @@ const SingleScholar = ({ posts }: any) => {
 
   return (
     <>
-      {<PageBanner title="Scholar" image="/images/main-image.png" />}
+      {<PageBanner title={slug} image="/images/main-image.png" />}
       <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 gap-4'>
         {
           posts?.map((item: IPost, idx: number) => (
@@ -41,18 +42,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   //const { queryStringData } = context;
   // const { param1, param2 } = queryStringData;
   const slug = context.params?.slug
-  console.log(context)
+  const sid = context.query.id
+  console.log(sid)
   const response = await apolloClient.query({
     query: PostsByScholar,
     variables: {
-      slug
+      sid
     },
   });
   const posts = response.data.posts.nodes;
   // console.log(posts);
   return {
     props: {
-      posts
+      posts, slug
     },
   };
 }

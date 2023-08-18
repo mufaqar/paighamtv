@@ -121,7 +121,7 @@ export const programsScheduling = gql`
 
 export const AllScholars = gql`
   query AllScholars {
-    scholars {
+    scholars(first: 50) {
       nodes {
         slug
         title
@@ -154,11 +154,11 @@ export const AllPlaylist = gql`
 
 // post by category pass category slug in qury
 export const PostsByScholar = gql`
-  query PostsByScholar {
-    posts(
+  query PostsByScholar($sid: String = "") {
+    posts(first: 100) (
       where: {
         metaQuery: {
-          metaArray: { key: "actor_id", compare: LIKE, value: "953" }
+          metaArray: { key: "actor_id", compare: LIKE, value: $sid }
         }
       }
     ) {
