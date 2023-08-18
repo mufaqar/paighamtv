@@ -38,7 +38,7 @@ const Main = ({ posts }: any) => {
           })
         }
       </Slider>
-      <section className='sliceslider w-full absolute bottom-5 2xl:bottom-10 right-0'>
+      <section className='sliceslider w-full absolute bottom-5 2xl:bottom-10 left-[50%]'>
         <Slider {...SliderSlice}>
           {
             posts.slice(10, 20).map((item: any, idx: number) => {
