@@ -1,9 +1,11 @@
 import { SettingsContext } from '@/context/setting-context';
 import React, { useContext } from 'react'
 import YouTube, { YouTubeProps } from 'react-youtube';
+import FacebookVideoPlayer from './FacebookPlayer';
 
 const VideoPlayer = ({ link }: any) => {
      const { videoLink } = useContext<any>(SettingsContext)
+
      const onPlayerReady: YouTubeProps['onReady'] = (event) => {
           event.target.pauseVideo();
      }
@@ -17,13 +19,17 @@ const VideoPlayer = ({ link }: any) => {
 
      return (
           <>
-               <YouTube
-                    videoId={videoLink}
-                    opts={opts}
-                    className={`videocontainer`}
-                    iframeClassName={`responsive-iframe`}
-                    onReady={onPlayerReady}
-               />
+               {
+                    videoLink?.type === 'facebook' ? <FacebookVideoPlayer /> : <YouTube
+                         videoId={videoLink}
+                         opts={opts}
+                         className={`videocontainer`}
+                         iframeClassName={`responsive-iframe`}
+                         onReady={onPlayerReady}
+                    />
+               }
+
+
           </>
      )
 }
