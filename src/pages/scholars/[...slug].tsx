@@ -43,6 +43,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // const { param1, param2 } = queryStringData;
   const slug = context.params?.slug
   const sid = context.query.id
+
   console.log(sid)
   const response = await apolloClient.query({
     query: PostsByScholar,
