@@ -56,25 +56,18 @@ export default function Donate_us({ allposts, allCategories }: any) {
                 <div className=' justify-between items-center mt-20 mb-10  '>
                     <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold border-b-[3px] border-darkgray  pb-5'>Donate Us</h2>
                     <div className='pt-6'>
-
-                        <p> <strong>Contact Person:</strong> Abdul Qayyum</p>
-
-                        <p> <strong>Call :</strong>   +92 333 4089688</p>
-
-                        <p> <strong>Bank Name: </strong>   Dubai Islamic Bank</p>
-
                         <p> <strong> Account Title: </strong>   Zam Zam Welfare Trust</p>
-
-                        <p> <strong>Branch Name: </strong>    Ravi Road Branch Lahore, Pakistan.</p>
-
-                        <p> <strong>Branch Code: </strong>   0219</p>
-
                         <p><strong>Account Number: </strong>    0709217001</p>
-
-                        <p><strong>IBAN #:</strong>   PK45DUIB0000000709217001</p>
+                        <p><strong>IBAN NO:</strong>   PK45DUIB0000000709217001</p>
+                        <p> <strong>Branch Name: </strong>   Ravi Road Branch Lahore, Pakistan</p>
+                        <p> <strong>Bank Name: </strong>   Dubai Islamic Bank</p>
+                        <p> <strong>Branch Code: </strong>   0219</p>
+                        <p> For more details plz contact with Mr. Abdul Qayyum Zaheer</p>
+                        <p> <strong>Tel :</strong>   +92 333 4089688</p>
+                        <p> <strong>Tel :</strong>   +92 308 4089688</p>
+                        <p> <strong>Email :</strong>   aqzaheer@paigham.tv</p>
                     </div>
                 </div>
-
             </section>
 
 
