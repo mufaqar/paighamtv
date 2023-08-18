@@ -121,7 +121,7 @@ export const programsScheduling = gql`
 
 export const AllScholars = gql`
   query AllScholars {
-    scholars(first: 50) {
+    scholars(first: 50, where: { orderby: { order: ASC, field: MENU_ORDER } }) {
       nodes {
         slug
         title
