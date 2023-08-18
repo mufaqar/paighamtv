@@ -5,6 +5,8 @@ import { PiPlay } from 'react-icons/pi'
 
 
 const Card = ({ item, OpenVideo }: any) => {
+
+     console.log(item);
      return (
           <>
 

@@ -166,6 +166,11 @@ export const PostsByScholar = gql`
       nodes {
         title
         content
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
       }
     }
   }

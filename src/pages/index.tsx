@@ -214,16 +214,16 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const tabData = [
   {
-    name: 'News Videos',
-    slug: 'news-videos'
+    name: 'Tafseer ul Quran',
+    slug: 'tafseer-ul-quran'
   },
   {
-    name: 'Latest Videos',
-    slug: 'latest-videos'
+    name: 'Subhe Watan',
+    slug: 'subhe-watan'
   },
   {
-    name: 'Top Trending Videos',
-    slug: 'top-trending-videos'
+    name: 'Paigham Podcast',
+    slug: 'paigham-podcast'
   },
 ]
 

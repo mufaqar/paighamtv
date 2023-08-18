@@ -19,7 +19,6 @@ const VideoSection = ({ allCategories, allposts }: any) => {
           setVideoLink(link)
      }
 
-
      return (
           <section className="bg-primary py-20">
                <div className='container mx-auto px-4'>
