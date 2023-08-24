@@ -11,7 +11,6 @@ const FacebookVideoPlayer = () => {
           });
      }
      const { videoLink } = useContext(SettingsContext)
-     console.log("🚀 ~ file: FacebookPlayer.jsx:14 ~ FacebookVideoPlayer ~ videoLink:", videoLink)
 
      // playVideo = () => {
      //   const { player } = this.state;
@@ -21,11 +20,12 @@ const FacebookVideoPlayer = () => {
      //   const { player } = this.state;
      //   if (player) player.pause();
      // }
-     
+
+     var link = videoLink?.link?.toString()?.replace("https://www.facebook.com/watch/?v=", "")
      return (
           <div>
                <FacebookPlayer
-                    videoId={videoLink.link}
+                    videoId={link}
                     appId="1731606113949263"
                     onReady={onReady}
                />
