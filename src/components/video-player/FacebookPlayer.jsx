@@ -28,6 +28,7 @@ const FacebookVideoPlayer = () => {
                     videoId={link}
                     appId="1731606113949263"
                     onReady={onReady}
+
                />
           </div>
      )
