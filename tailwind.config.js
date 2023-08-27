@@ -37,6 +37,7 @@ module.exports = {
         'anton': `var(--anton)`,
         'metapro': `var(--metapro)`,
         'montserrat': `var(--montserrat)`,
+        'mehr': `var(--mehr)`,
       },
     },
   },
