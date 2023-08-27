@@ -13,7 +13,7 @@ import VideoPlayer from '@/components/video-player/VideoPlayer'
 import { getVideoCode } from '../utils'
 import { SettingsContext } from '@/context/setting-context'
 import React, { useContext } from 'react'
-import { VideosData, category } from '../../public/data'
+import {category } from '../../public/data'
 import { IScholorType } from '@/utils/types'
 import { Helmet } from 'react-helmet';
 import apolloClient from '@/config/client'
