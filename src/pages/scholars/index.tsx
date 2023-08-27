@@ -1,7 +1,6 @@
 import PageBanner from '@/components/pageBanner/PageBanner'
 import React from 'react'
 import { GetStaticProps } from 'next'
-import { Scholars } from '../../../public/data'
 import apolloClient from '@/config/client'
 import ScholarCard from '@/components/scholar-card/ScholarCard'
 import { AllScholars } from '@/config/query'
