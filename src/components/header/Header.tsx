@@ -88,11 +88,11 @@ const navList = [
   },
 
   {
-    name: 'Series',
+    name: 'Shows',
     link: '/series'
   },
   {
-    name: 'Program Scheduling',
+    name: 'TV Guide',
     link: '/program-scheduling'
   }
 ]
