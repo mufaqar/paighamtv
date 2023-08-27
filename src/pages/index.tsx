@@ -120,10 +120,10 @@ const TabsSection = ({ allposts }: any) => {
     <section className="container mx-auto pt-20 px-4">
       {/* top header  */}
       <div className='flex justify-between item-center border-b-2 border-gray-500'>
-        <ul className='flex justify-between space-x-2 overflow-x-scroll xl:overflow-x-hidden font-metapro font-medium '>
+        <ul className='flex justify-between space-x-2 overflow-x-scroll xl:overflow-x-hidden font-metapro font-semibold  '>
           {
             tabData.map((item, idx) => (
-              <li key={idx} className={`${activeCategory === item.slug && 'bg-secondary px-4 py-2 text-primary '} flex-1 flex justify-center min-w-[140px] cursor-pointer  items-center`} onClick={() => HandleVideosCategoryTabs(item.slug)}>{item.name}</li>
+              <li key={idx} className={`${activeCategory === item.slug && 'bg-secondary px-4 py-2 text-primary '} flex-1 flex justify-center min-w-[160px] cursor-pointer  items-center`} onClick={() => HandleVideosCategoryTabs(item.slug)}>{item.name}</li>
             ))
           }
         </ul>
