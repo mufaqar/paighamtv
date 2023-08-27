@@ -24,25 +24,25 @@ export default ChannelLinks
 
 const navButons = [
   {
-    name: 'Paigham TV Urdu',
+    name: 'TV Urdu',
     link: 'https://www.youtube.com/live/Z6wPPWr2nHM',
     icon: '/images/tv_icon.png',
     live: '/images/live.png'
   },
   {
-    name: 'Piagham Quran TV',
+    name: 'Quran TV',
     link: 'https://youtu.be/xJVVLnGS4cI',
     icon: '/images/tv_icon.png',
     live: '/images/live.png'
   },
   {
-    name: 'Paigham TV UK',
+    name: 'TV UK',
     link: 'https://youtu.be/xJVVLnGS4cI',
     icon: '/images/tv_icon.png',
     live: '/images/live.png'
   },
   {
-    name: 'Paigham TV Pashto',
+    name: 'TV Pashto',
     link: 'https://www.youtube.com/watch?v=AKfu9N3Mv9c',
     icon: '/images/pashto_icon.png',
     live: '/images/live.png'
