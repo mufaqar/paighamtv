@@ -36,6 +36,7 @@ module.exports = {
       fontFamily: {
         'anton': `var(--anton)`,
         'metapro': `var(--metapro)`,
+        'montserrat': `var(--montserrat)`,
       },
     },
   },

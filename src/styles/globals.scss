@@ -36,6 +36,13 @@
      font-weight: 300;
 }
 
+@font-face {
+     font-family: 'montserrat';
+     font-style: normal;
+     font-weight: 400;
+     src: url('../../public/fonts/Montserrat-Regular.woff') format('woff2');
+   }
+
 body {
      overflow-x: hidden;
 }
