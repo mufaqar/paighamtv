@@ -6,7 +6,7 @@ import React, { useContext } from 'react'
 import Card from '@/components/video-section/card'
 import { SettingsContext } from '@/context/setting-context'
 import { IPost } from '@/utils/types'
-import {Pagination} from '@/components/pagination/Pagination'
+import { Pagination } from '@/components/pagination/Pagination'
 
 
 const Posts = ({ allposts }: any) => {
@@ -19,7 +19,7 @@ const Posts = ({ allposts }: any) => {
 
      return (
           <section>
-               <PageBanner title="All Posts" image="/images/main-image.png" />
+               <PageBanner title="All Posts" image="/images/banner-2.jpg" />
                <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 mt-20 gap-4'>
                     {
                          allposts?.nodes?.map((item: IPost, idx: number) => (
@@ -27,7 +27,7 @@ const Posts = ({ allposts }: any) => {
                          ))
                     }
                </div>
-               <Pagination endCursor={pageInfo?.endCursor}/>
+               <Pagination endCursor={pageInfo?.endCursor} />
           </section>
      )
 }
@@ -45,8 +45,8 @@ export const getServerSideProps: GetServerSideProps = async (params) => {
           variables: {
                endCursor
           },
-        });
-        const allposts = postsResponse.data.posts;
+     });
+     const allposts = postsResponse.data.posts;
      return {
           props: {
                allposts,

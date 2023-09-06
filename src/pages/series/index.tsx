@@ -43,7 +43,7 @@ export default function Series({ allCategories }: any) {
                 <meta name="twitter:data1" content="2 minutes" />
             </Helmet>
 
-            <PageBanner title="Series" image="/images/main-image.png" />
+            <PageBanner title="Series" image="/images/banner-2.jpg" />
             <section className='container mx-auto mb-28 px-4 mt-20'>
 
                 <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>

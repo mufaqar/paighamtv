@@ -40,8 +40,6 @@ export default function Contact_Us() {
                 {/* heading  */}
                 <div className=' justify-between items-center mt-20 mb-10  '>
                     <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold border-b-[3px] border-darkgray  pb-5'>Contact Us</h2>
-
-
                     <section className="px-2 pt-20 pb-9">
                         <h2 className="md:text-4xl text-3xl leading-8 uppercase font-bold text-[#302E2E] text-center mb-8">
                             OUR LOCATIONS

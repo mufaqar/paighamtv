@@ -8,7 +8,7 @@ import { AllScholars } from '@/config/query'
 const Scholar = ({ allScholars }: any) => {
   return (
     <>
-      <PageBanner title="Scholar" image="/images/main-image.png" />
+      <PageBanner title="Scholar" image="/images/banner-2.jpg" />
       <div className='grid container mx-auto my-20 grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 px-4 '>
         {
           allScholars.map((item: any, idx: number) => (
