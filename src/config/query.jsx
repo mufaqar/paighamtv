@@ -63,6 +63,11 @@ export const PostsByCategory = gql`
       name
       slug
       description
+      categoryInfo {
+        categoryBanner {
+          mediaItemUrl
+        }
+      }
       posts(first: 1000) {
         nodes {
           title
@@ -96,6 +101,9 @@ export const Categories = gql`
         count
         categoryInfo {
           catImage {
+            mediaItemUrl
+          }
+          categoryBanner {
             mediaItemUrl
           }
         }

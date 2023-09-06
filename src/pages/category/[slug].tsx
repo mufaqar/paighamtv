@@ -9,7 +9,8 @@ import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
 
 const Category = ({ posts }: any) => {
-  const { name, posts: { nodes } } = posts
+  const { name, categoryInfo, posts: { nodes } } = posts
+  console.log("🚀 ~ file: [slug].tsx:13 ~ Category ~ posts:", categoryInfo.categoryBanner.mediaItemUrl);
 
   const { setModelIsOpen, setVideoLink } = useContext(SettingsContext)
   const OpenVideo = (link: string) => {
@@ -19,7 +20,7 @@ const Category = ({ posts }: any) => {
 
   return (
     <>
-      <PageBanner title={name} image="/images/main-image.png" />
+      <PageBanner title={name} image={categoryInfo?.categoryBanner?.mediaItemUrl} />
       <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 gap-4'>
         {
           nodes?.map((item: IPost, idx: number) => (
