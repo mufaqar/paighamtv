@@ -70,6 +70,7 @@ const Header = () => {
                 isMobileNav ? <RxCross1 size={30} className='text-white' /> : <RiMenu5Fill size={32} className='text-white' />
               }
             </button>
+            <i className='lg:hidden'><MdLanguage size={28} onClick={toggleLanguageAndDirection} /></i>
             <i className='lg:hidden'><FiSearch size={24} onClick={() => OpenSearch()} /></i>
           </div>
           <div className={`lg:flex items-center lg:space-x-3 ${isMobileNav ? 'block absolute top-[0px] p-6 pt-36 md:pt-40 pb-10 left-0 right-0 z-[1] bg-primary' : 'hidden'}`}>
