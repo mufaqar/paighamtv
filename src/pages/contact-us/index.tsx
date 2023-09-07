@@ -4,6 +4,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet';
 
 import Locations from '@/components/locations/locations';
+import PageBanner from '@/components/pageBanner/PageBanner';
 
 
 
@@ -35,11 +36,9 @@ export default function Contact_Us() {
             </Helmet>
 
 
-            {/* Categories section  */}
-            <section className='container mx-auto mb-28 px-4'>
-                {/* heading  */}
-                <div className=' justify-between items-center mt-20 mb-10  '>
-                    <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold border-b-[3px] border-darkgray  pb-5'>Contact Us</h2>
+            <PageBanner title="Contact Us" image="/images/banner-2.jpg" />
+            <section className='container mx-auto mb-28 px-4'>       
+                <div className=' justify-between items-center mb-10  '>                  
                     <section className="px-2 pt-20 pb-9">
                         <h2 className="md:text-4xl text-3xl leading-8 uppercase font-bold text-[#302E2E] text-center mb-8">
                             OUR LOCATIONS

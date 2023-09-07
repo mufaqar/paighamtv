@@ -1,3 +1,4 @@
+import PageBanner from '@/components/pageBanner/PageBanner';
 import React from 'react'
 import { Helmet } from 'react-helmet';
 
@@ -28,11 +29,12 @@ export default function Donate_us() {
             </Helmet>
 
 
+            <PageBanner title="Donate Us" image="/images/banner-2.jpg" />
             {/* Categories section  */}
             <section className='container mx-auto mb-28 px-4'>
                 {/* heading  */}
-                <div className=' justify-between items-center mt-20 mb-10  '>
-                    <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold border-b-[3px] border-darkgray  pb-5'>Donate Us</h2>
+                <div className=' justify-between items-center  mb-10  '>
+                 
                     <div className='pt-6'>
                         <p> <strong> Account Title: </strong>   Zam Zam Welfare Trust</p>
                         <p><strong>Account Number: </strong>    0709217001</p>

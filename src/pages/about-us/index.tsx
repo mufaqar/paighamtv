@@ -3,6 +3,7 @@ import React from 'react'
 
 import { Helmet } from 'react-helmet';
 import Image from 'next/image';
+import PageBanner from '@/components/pageBanner/PageBanner';
 
 
 export default function About_us() {
@@ -31,11 +32,11 @@ export default function About_us() {
             </Helmet>
 
 
-            {/* Categories section  */}
+            <PageBanner title="About Us" image="/images/banner-2.jpg" />
             <section className='container mx-auto mb-28 px-4'>
                 {/* heading  */}
-                <div className=' justify-between items-center mt-20 mb-10  '>
-                    <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold border-b-[3px] border-darkgray  pb-5'>About Us</h2>
+                <div className=' justify-between items-center mt-10 mb-10  '>
+                 
                     <div className='pt-6'>
 
                         <p className='mb-5'> Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah and promoting religious awareness world wide. The channel is spreading the authentic message of the Quran and Sunnah to the masses in interesting and efficient manner. The speeches and lectures of acclaimed and influential scholars are being transmitted for this mission. Talk shows, road shows, informative documentary programs, special programs for religious guidance of women, distinctive programs for religious education of children and much more the viewers want to watch is being broadcasted.Paigham TV is a missionary and educational channel. With the same ambition of promoting the education of the Quran and Sunnah, an educational network is being launched. This will give you an opportunity to learn the Holy Quran and Sunnah from the well known reciters and scholars of Paigham TV. The network will function under the high level research board consisting of world scholars and reciters graduated from world renowned Islamic Universities.</p>

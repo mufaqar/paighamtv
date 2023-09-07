@@ -72,8 +72,8 @@ export const footerNav = [
         link: '/program-scheduling',
       },
       {
-        name: 'donate-us',
-        link: '/donate-us',
+        name: 'All Videos',
+        link: '/videos',
       },
     ],
   },
