@@ -60,7 +60,7 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
         {/* heading  */}
         <div className='flex justify-between items-center mt-20 mb-10 border-b-[3px] border-darkgray pb-5'>
           <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold'>Categories</h2>
-          <Link href="#" className='uppercase flex hover:text-orange items-center space-x-2 font-metapro text-xl tracking-widest font-semibold'>
+          <Link href="#" className='uppercase flex hover:text-orange items-center gap-x-2 font-metapro text-xl tracking-widest font-semibold rtl:flex-row-reverse'>
             <span>View All</span>
             <HiOutlineArrowRight />
           </Link>
@@ -80,7 +80,7 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
         {/* heading  */}
         <div className='flex justify-between items-center mt-20 mb-10 border-b-[3px] border-darkgray pb-5'>
           <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold'>Scholar</h2>
-          <Link href="#" className='uppercase flex hover:text-orange items-center space-x-2 font-metapro text-xl tracking-widest font-semibold'>
+          <Link href="#" className='uppercase flex hover:text-orange items-center gap-x-2 font-metapro text-xl tracking-widest font-semibold rtl:flex-row-reverse'>
             <span>View All</span>
             <HiOutlineArrowRight />
           </Link>
@@ -127,7 +127,7 @@ const TabsSection = ({ allposts }: any) => {
             ))
           }
         </ul>
-        <Link href="#" className='uppercase hidden md:flex hover:text-orange items-center space-x-2 font-metapro text-xl tracking-widest font-semibold'>
+        <Link href="#" className='uppercase hidden md:flex hover:text-orange items-center space-x-2 font-metapro text-xl tracking-widest font-semibold rtl:flex-row-reverse'>
           <span>View All</span>
           <HiOutlineArrowRight />
         </Link>
@@ -158,7 +158,7 @@ const PaighamChannelPresents = ({ programs }: any) => {
     <section className='bg-primary mt-20'>
       <div className='container font-metapro mx-auto px-4 text-white py-16'>
         <h2 className=' text-3xl text-center md:text-5xl font-bold'>Paigham Channel Presents</h2>
-        <div className='md:flex mt-10 md:space-x-10'>
+        <div className='md:flex mt-10 md:gap-x-10 '>
           <div className='md:w-[60%]'>
             <VideoPlayer />
           </div>
@@ -171,11 +171,11 @@ const PaighamChannelPresents = ({ programs }: any) => {
             <ul className='mt-5 '>
               {
                 programs.map((item: any, idx: number) => (
-                  <li key={idx} className='flex justify-between space-x-6 md:space-x-16 border-t-[1px] border-gray-500 py-5'>
+                  <li key={idx} className='flex justify-between gap-x-6 md:gap-x-16 border-t-[1px] border-gray-500 py-5'>
                     <time className='font-medium text-xl'>{item?.programInfo?.programTime || `0000`}</time>
                     <button onClick={() => handleLink(getVideoCode(item?.programInfo?.videoUrl))}>
-                      <h6 className='text-secondary text-xl font-medium text-left -tracking-wide'>{item.title}</h6>
-                      <div className='text-left text-lg mt-2' dangerouslySetInnerHTML={{ __html: item?.excerpt }} />
+                      <h6 className='text-secondary text-xl font-medium text-start -tracking-wide'>{item.title}</h6>
+                      <div className='text-start text-lg mt-2' dangerouslySetInnerHTML={{ __html: item?.excerpt }} />
                     </button>
                   </li>
                 ))

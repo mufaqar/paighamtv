@@ -25,7 +25,7 @@ const VideoSection = ({ allCategories, allposts }: any) => {
                     {/* heading  */}
                     <div className='flex justify-between text-white items-center mb-5 pb-5'>
                          <h2 className='font-metapro text-3xl md:text-5xl font-bold'>VIDEOS</h2>
-                         <Link href="/posts" className='uppercase flex hover:text-orange items-center space-x-2 font-metapro text-xl tracking-widest font-semibold'>
+                         <Link href="/posts" className='uppercase flex hover:text-orange items-center gap-x-2 font-metapro text-xl tracking-widest font-semibold rtl:flex-row-reverse'>
                               <span>View All</span>
                               <HiOutlineArrowRight />
                          </Link>
