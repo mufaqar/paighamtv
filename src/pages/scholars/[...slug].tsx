@@ -22,7 +22,7 @@ const SingleScholar = ({ posts, slug }: any) => {
 
   return (
     <>
-      {<PageBanner title={slug} image="/images/main-image.png" />}
+      {<PageBanner title={slug} image="/images/banner2.jpg" />}
       <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 gap-4'>
         {
           posts?.map((item: IPost, idx: number) => (

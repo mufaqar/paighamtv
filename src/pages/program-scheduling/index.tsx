@@ -86,7 +86,7 @@ export default function Program_Scheduling({ allProgramsScheduling }: any) {
                 <meta name="twitter:data1" content="2 minutes" />
             </Helmet>
 
-            <PageBanner title="Program Scheduling" image="/images/main-image.png" />
+            <PageBanner title="Program Scheduling" image="/images/banner2.jpg" />
             {/* Categories section  */}
 
             <PaighamChannelPresents programs={allProgramsScheduling} />
