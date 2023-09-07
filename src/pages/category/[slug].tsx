@@ -1,4 +1,4 @@
-import PageBanner from '@/components/pageBanner/PageBanner'
+import Category_Banner from '@/components/pageBanner/categoryBanner'
 import Card from '@/components/video-section/card'
 import apolloClient from '@/config/client'
 import { PostsByCategory } from '@/config/query'
@@ -19,10 +19,14 @@ const Category = ({ posts }: any) => {
 
   return (
     <>
-      <PageBanner title={name} image={categoryInfo?.categoryBanner?.mediaItemUrl} />
+      {
+        nodes?.slice(0,1).map((item: IPost, idx: number) => (
+          <Category_Banner item={item} key={idx} OpenVideo={OpenVideo} />
+        ))
+      }
       <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 gap-4'>
         {
-          nodes?.map((item: IPost, idx: number) => (
+          nodes?.slice(1).map((item: IPost, idx: number) => (
             <Card item={item} key={idx} OpenVideo={OpenVideo} />
           ))
         }
