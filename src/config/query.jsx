@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const postsForListingPage = gql`
   query AllPosts($endCursor: String) {
-    posts(first: 12, after: $endCursor) {
+    posts(first: 40, after: $endCursor) {
       nodes {
         title
         slug
