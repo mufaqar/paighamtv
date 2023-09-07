@@ -25,25 +25,25 @@ export default ChannelLinks
 const navButons = [
   {
     name: 'TV Urdu',
-    link: 'https://www.youtube.com/live/Z6wPPWr2nHM',
+    link: 'https://www.youtube.com/channel/UCi-vOBG7Jgk_nKAG1Zd0R5g/live',
     icon: '/images/tv_icon.png',
     live: '/images/live.png'
   },
   {
     name: 'Quran TV',
-    link: 'https://youtu.be/xJVVLnGS4cI',
+    link: 'http://buttflu.pointto.us:8032/pk/Qurantv/index.m3u8',
     icon: '/images/tv_icon.png',
     live: '/images/live.png'
   },
   {
     name: 'TV UK',
-    link: 'https://youtu.be/xJVVLnGS4cI',
+    link: 'http://buttflu.pointto.us:8032/pk/paighamtv/video.m3u8',
     icon: '/images/tv_icon.png',
     live: '/images/live.png'
   },
   {
     name: 'TV Pashto',
-    link: 'https://www.youtube.com/watch?v=AKfu9N3Mv9c',
+    link: 'http://buttflu.pointto.us:8032/paigham/pashto/video.m3u8',
     icon: '/images/pashto_icon.png',
     live: '/images/live.png'
   }
