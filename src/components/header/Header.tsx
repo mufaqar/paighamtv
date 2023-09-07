@@ -14,6 +14,7 @@ import { Socials } from '../footer';
 import TopBar from './topBar';
 import useWindowScroll from '@/hooks/useWindowScroll'
 import useWindowScreen from '@/hooks/useWindowScreen'
+import { MdLanguage } from 'react-icons/md'
 
 const Header = () => {
   const [isMobileNav, setIsMobileNav] = useState(false)
@@ -34,6 +35,23 @@ const Header = () => {
     }
   }
 
+  const [documentDirection, setDocumentDirection] = useState<string>('ltr');
+  const [language, setLanguage] = useState<string>('en'); // Default language is English
+
+  const toggleLanguageAndDirection = () => {
+    // Toggle document direction
+    setDocumentDirection(documentDirection === 'ltr' ? 'rtl' : 'ltr');
+
+    // Toggle language between English and Arabic (for example)
+    setLanguage(language === 'en' ? 'ar' : 'en');
+  };
+
+  useEffect(() => {
+    // Update the document's direction and language when the state changes
+    document.documentElement.dir = documentDirection;
+    document.documentElement.lang = language;
+  }, [documentDirection, language]);
+
 
   return (
     <>
@@ -52,6 +70,7 @@ const Header = () => {
                 isMobileNav ? <RxCross1 size={30} className='text-white' /> : <RiMenu5Fill size={32} className='text-white' />
               }
             </button>
+            <i className='lg:hidden'><MdLanguage size={28} onClick={toggleLanguageAndDirection} /></i>
             <i className='lg:hidden'><FiSearch size={24} onClick={() => OpenSearch()} /></i>
           </div>
           <div className={`lg:flex items-center lg:space-x-3 ${isMobileNav ? 'block absolute top-[0px] p-6 pt-36 md:pt-40 pb-10 left-0 right-0 z-[1] bg-primary' : 'hidden'}`}>
@@ -62,6 +81,7 @@ const Header = () => {
                 ))
               }
               <li className="hidden cursor-pointer md:block"><HiMenu size={28} onClick={() => setLeftSideBar(true)} /></li>
+              <li className="hidden cursor-pointer md:block"><MdLanguage size={28} onClick={toggleLanguageAndDirection} /></li>
               <li className="hidden cursor-pointer md:block pr-4 rtl:pr-0 pl-4"><i className=''><FiSearch size={24} onClick={() => OpenSearch()} /></i></li>
             </ul>
             <Link href="/donate-us" className='uppercase mt-5 lg:mt-0 text-base w-[200px] lg:w-auto hover:bg-orange inline-block text-center active:scale:105 hover:border-orange text-pure border px-5 py-[9.5px] font-anton tracking-widest border-pure'>Donate us</Link>
