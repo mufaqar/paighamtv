@@ -23,20 +23,14 @@ const Main = ({ posts }: any) => {
             return (
               <div key={idx} className='relative w-full bg-[url("/images/banner.jpg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'              >
                 <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
-                  <h1 className='text-4xl  text-center md:text-left md:text-[60px] font-bold text mb-4'>Paigham TV</h1>
-                  <span className='tracking-widest'> Live</span>
-                  <p className='tracking-wider px-10 text-center md:text-left md:px-0 text-lg mt-4 max-w-[600px]'>The main motive of Paigham TV is to make the idle environment back to its place as a pure Muslim nation</p>
-                  <button onClick={() => OpenVideo('qpv2tWD8Rm4')} className="inline-flex active:scale-105 hover:bg-primary hover:text-white mt-10 item-center space-x-2 bg-secondary text-darkgray font-anton px-8 py-3 uppercase tracking-widest text-lg">
-                    <PiPlay size={25} className="mt-[1px]" />
-                    <span>Watch Now</span>
-                  </button>
+                  
                 </div>
               </div>
             )
           })
         }
       </Slider>
-      <section className='sliceslider right-0 absolute bottom-5 2xl:bottom-10 w-full lg:w-[50%]'>
+      {/* <section className='sliceslider right-0 absolute bottom-5 2xl:bottom-10 w-full lg:w-[50%]'>
         <Slider {...SliderSlice}>
           {
             posts.slice(10, 20).map((item: any, idx: number) => {
@@ -48,7 +42,7 @@ const Main = ({ posts }: any) => {
             })
           }
         </Slider>
-      </section>
+      </section> */}
       <ChannelLinks />
       <button className="absolute top-1/2 left-1 md:left-2 transform -translate-y-1/2 bg-dark-gray active:scale-105 text-yellow text-xl p-[6px] px-1.5 md:px-5 " onClick={() => slider?.current?.slickPrev()}><Image src="/svg/left-slider-arrow.svg" alt="arrow" width={60} height={60} className='w-7 md:w-16' /></button>
       <button className="absolute top-1/2 right-1 md:right-2 transform -translate-y-1/2 bg-dark-gray active:scale-105 text-yellow text-xl p-[6px] px-1.5 md:px-5 " onClick={() => slider?.current?.slickNext()}><Image src="/svg/right-slider-arrow.svg" alt="arrow" width={60} height={60} className='w-7 md:w-16' /></button>
