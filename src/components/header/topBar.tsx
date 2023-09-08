@@ -5,7 +5,7 @@ const TopBar = () => {
      return (
           <>
                {/* top bar with smooth scrolling  */}
-               <div className="overflow-x-hidden bg-gradient-to-l from-orange to-secondary">
+               <div className="overflow-x-hidden bg-secondary">
                     <div className="py-2 animate-marquee_Ltr rtl:animate-marquee_Rtl whitespace-nowrap flex ">
                          {
                               headerSlider.map((item, idx) => {
