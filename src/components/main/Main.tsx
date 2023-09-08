@@ -15,10 +15,8 @@ const Main = ({ posts }: any) => {
     setModelIsOpen(true)
     setVideoLink(link)
   }
-
-
   return (
-    <main className='relative h-[700px]  '>
+    <main className='relative h-[700px]'>
       <Slider ref={slider} {...settings}>
         {
           [1, 2, 3].map((slide, idx) => {
