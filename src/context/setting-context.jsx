@@ -7,7 +7,8 @@ export const SettingsProvider = ({ children }) => {
   const [SearchModalIsOpen, setSearchModalIsOpen] = useState(false);
   const [videoLink, setVideoLink] = useState()
   const [SetctedCategory, setCategory] = useState('Ramadan')
-
+  const [documentDirection, setDocumentDirection] = useState('ltr');
+  const [language, setLanguage] = useState('en'); // Default language is English
 
   // hide site scrolling when model box is true state
   useEffect(() => {
@@ -22,6 +23,11 @@ export const SettingsProvider = ({ children }) => {
     };
   }, [modalIsOpen, SearchModalIsOpen]);
 
+  useEffect(()=>{
+    setDocumentDirection(sessionStorage.getItem('direction'))
+    setLanguage(sessionStorage.getItem('language'))
+  },[])
+
   return (
     <SettingsContext.Provider
       value={{
@@ -32,6 +38,8 @@ export const SettingsProvider = ({ children }) => {
         SearchModalIsOpen, 
         setSearchModalIsOpen,
         SetctedCategory, setCategory,
+        documentDirection, setDocumentDirection,
+        language, setLanguage
       }}
     >
       {children}

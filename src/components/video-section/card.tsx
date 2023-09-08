@@ -1,10 +1,21 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useContext } from 'react'
 import { getVideoCode } from '@/utils'
 import { PiPlay } from 'react-icons/pi'
+import { SettingsContext } from '@/context/setting-context'
 
 
 const Card = ({ item, OpenVideo }: any) => {
+     console.log("🚀 ~ file: card.tsx:8 ~ Card ~ item:", item)
+     const {language} = useContext(SettingsContext)
+     console.log("🚀 ~ file: card.tsx:11 ~ Card ~ documentDirection:", language)
+     var title = item.title
+     if(language === 'ar'){
+          title = item.postInfo.arabicTitle
+     }else if(language === 'ur'){
+          title = item.postInfo.urduTitle
+     }
+
      return (
           <>
 
@@ -19,7 +30,7 @@ const Card = ({ item, OpenVideo }: any) => {
                          </div>
 
                     </div>
-                    <h4 className='text-white md:text-lg font-medium md:px-2 text-center tracking-wide my-3'>{item.title}</h4>
+                    <h4 className='text-white md:text-lg font-medium md:px-2 text-center tracking-wide my-3'>{title}</h4>
 
                </div>
 

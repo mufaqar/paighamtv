@@ -47,6 +47,8 @@ export const AllPosts = gql`
         }
         postInfo {
           tmVideoUrl
+          urduTitle
+          arabicTitle
         }
       }
       pageInfo {
