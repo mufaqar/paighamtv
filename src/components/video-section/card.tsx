@@ -6,9 +6,7 @@ import { SettingsContext } from '@/context/setting-context'
 
 
 const Card = ({ item, OpenVideo }: any) => {
-     console.log("🚀 ~ file: card.tsx:8 ~ Card ~ item:", item)
      const {language} = useContext(SettingsContext)
-     console.log("🚀 ~ file: card.tsx:11 ~ Card ~ documentDirection:", language)
      var title = item.title
      if(language === 'ar'){
           title = item.postInfo.arabicTitle

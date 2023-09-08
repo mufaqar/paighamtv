@@ -59,8 +59,6 @@ const PaighamChannelPresents = ({ programs }: any) => {
 
 
 export default function Program_Scheduling({ allProgramsScheduling }: any) {
-    console.log("🚀 ~ file: index.tsx:26 ~ Home ~ allProgramsScheduling:", allProgramsScheduling)
-
 
     return (
         <>

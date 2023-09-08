@@ -10,7 +10,6 @@ import React, { useContext } from 'react'
 
 const Category = ({ posts }: any) => {
   const { name, categoryInfo, posts: { nodes } } = posts
-  //  console.log("🚀 ~ file: [slug].tsx:13 ~ Category ~ posts:", categoryInfo.categoryBanner.mediaItemUrl);
   const { setModelIsOpen, setVideoLink } = useContext(SettingsContext)
   const OpenVideo = (link: string) => {
     setModelIsOpen(true)

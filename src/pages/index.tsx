@@ -25,9 +25,6 @@ import FacebookVideoPlayer from '@/components/video-player/FacebookPlayer'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({ allposts, allCategories, allProgramsScheduling, Scholars }: any) {
-  console.log("🚀 ~ file: index.tsx:26 ~ Home ~ allProgramsScheduling:", allposts);
-
-  
 
   return (
     <>
