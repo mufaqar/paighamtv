@@ -50,6 +50,31 @@
      src: url('../../public/fonts/MehrNastaliqWebRegular.ttf') format('woff2');
    }
 
+
+
+
+   @font-face {
+     font-family: 'nafeesweb';
+     src: url('../../public/fonts/nafeesweb.woff') format('truetype');
+     font-weight: normal;
+     font-style: normal;
+   }
+   
+   @font-face {
+     font-family: 'NotoNastaliqUrdu';
+     src: url('../../public/fonts/NotoNastaliqUrdu-Regular.ttf') format('truetype');
+     font-weight: normal;
+     font-style: normal;
+   }
+   
+   @font-face {
+     font-family: 'jameelnoori';
+     src: url('../../public/fonts/jameel-noori.ttf') format('truetype');
+     font-weight: normal;
+     font-style: normal;
+   }
+
+
 body {
      overflow-x: hidden;
 }
