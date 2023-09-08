@@ -18,12 +18,12 @@ const Main = ({ posts }: any) => {
 
 
   return (
-    <main className='relative h-[calc(100vh-40px)] -mt-[65px] lg:-mt-[77px]'>
+    <main className='relative h-[700px]  '>
       <Slider ref={slider} {...settings}>
         {
           [1, 2, 3].map((slide, idx) => {
             return (
-              <div key={idx} className='relative w-full bg-[url("/images/banner2.jpg")] p-2 h-[calc(100vh-40px)] bg-cover bg-no-repeat'              >
+              <div key={idx} className='relative w-full bg-[url("/images/banner.jpg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'              >
                 <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
                   <h1 className='text-4xl  text-center md:text-left md:text-[60px] font-bold text mb-4'>Paigham TV</h1>
                   <span className='tracking-widest'> Live</span>

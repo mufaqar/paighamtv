@@ -77,7 +77,7 @@ const Header = () => {
       <TopBar />
       <header className="sticky top-0 z-[50]">
         {/* main nav   */}
-        <nav className={`flex justify-between items-center py-4 px-6 z-50 ${isScrolled && 'bg-gradient-to-l  from-blue via-blue to-[#0F275E]'}`}>
+        <nav className={`flex justify-between items-center py-4 px-6 z-50 bg-gradient-to-l  from-blue via-blue to-[#0F275E] ${isScrolled && 'bg-gradient-to-l  from-blue via-blue to-[#0F275E]'}`}>
           <div className='text-pure flex items-center space-x-4'>
             <div className='absolute top-2 left-4 rtl:left-auto rtl:right-4'>
               <Logo />
