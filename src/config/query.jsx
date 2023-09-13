@@ -58,6 +58,46 @@ export const AllPosts = gql`
   }
 `;
 
+export const PostsByTags = gql`
+query PostByTags($slug: ID!) {
+  tag(id: $slug, idType: SLUG) {
+    name
+      slug
+      description
+      posts(first: 1000) {
+        nodes {
+          title
+          slug
+          featuredImage {
+            node {
+              mediaItemUrl
+            }
+          }
+          categories {
+            nodes {
+              slug
+              name
+            }
+          }
+          postInfo {
+            tmVideoUrl
+          }
+        }
+      }
+  }
+}
+`;
+
+export const AllTags = gql`
+query AllTags {
+  tags {
+    nodes {
+      slug
+      name
+    }
+  }
+}`;
+
 // post by category pass category slug in qury
 export const PostsByCategory = gql`
   query PostsByCategory($slug: ID!) {

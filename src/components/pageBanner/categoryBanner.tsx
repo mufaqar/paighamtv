@@ -1,5 +1,6 @@
 import { SettingsContext } from '@/context/setting-context';
 import React, { useContext, useEffect, useState } from 'react'
+import PageBanner from './PageBanner';
 
 const Category_Banner = ({item}:any) => {
 
@@ -30,6 +31,7 @@ const Category_Banner = ({item}:any) => {
 
 
     return (
+        <>
         <section className='container mt-24 px-4 mx-auto '>
             <div className="container flex mx-auto justify-center bg-black items-center">
                 <div className=" iframe-container">
@@ -44,8 +46,8 @@ const Category_Banner = ({item}:any) => {
                     ) : <iframe src={link}  scrolling="no" frameBorder="0" allowFullScreen></iframe>}
                 </div>
             </div>
-            
         </section >
+       </> 
     );
 }
 

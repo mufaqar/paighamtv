@@ -78,12 +78,20 @@ export const footerNav = [
     ],
   },
   {
-    name: 'CONTACT US',
+    name: 'TAGS',
     nav: [
       
       {
-        name: 'Contact Us',
-        link: '/contact-us',
+        name: 'Happy',
+        link: '/tags/happy',
+      },
+      {
+        name: 'Motivated',
+        link: '/tags/motivated',
+      },
+      {
+        name: 'Sad',
+        link: '/tags/sad',
       },
     ],
   },
