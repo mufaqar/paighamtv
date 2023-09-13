@@ -14,7 +14,6 @@ const Card = ({ item, OpenVideo, slug }: any) => {
           title = item.postInfo.urduTitle
      }
 
-
      return (
           <>
 
@@ -40,7 +39,6 @@ const Card = ({ item, OpenVideo, slug }: any) => {
 
                     </div>
                     <h4 className='text-white md:text-lg font-medium md:px-2 text-center tracking-wide my-3'>{title}</h4>
-
                </div>
 
 

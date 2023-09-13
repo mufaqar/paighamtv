@@ -30,7 +30,7 @@ const Category = ({ posts }: any) => {
     <>
       {
         nodes?.slice(0,1).map((item: IPost, idx: number) => (
-          <Category_Banner key={idx} />
+          <Category_Banner key={idx} item={item}/>
         ))
       }
       <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 gap-4'>

@@ -1,19 +1,20 @@
 import { SettingsContext } from '@/context/setting-context';
 import React, { useContext, useEffect, useState } from 'react'
 
-const Category_Banner = () => {
+const Category_Banner = ({item}:any) => {
 
     const [isFacebookLink, setIsFacebookLink] = useState(false);
     const { videoLink } = useContext(SettingsContext)
     const [link, setLink] = useState<any>()
 
     useEffect(() => {
-        // Check if the link is a Facebook link
-        setLink(videoLink?.link)
-        if (videoLink?.type === 'facebook') {
+        // Check if the link is a Facebook link item.postInfo.tmVideoUrl
+        var link = videoLink?.link.length > 3 ? videoLink?.link : item.postInfo.tmVideoUrl
+        setLink(link)
+        if (link.includes('facebook.com')) {
             setIsFacebookLink(true);
             // Load the Facebook SDK script
-            const convertedLink = convertFacebookVideoLink(videoLink?.link);
+            const convertedLink = convertFacebookVideoLink(link);
             setLink(convertedLink)
         } else {
             setIsFacebookLink(false);
