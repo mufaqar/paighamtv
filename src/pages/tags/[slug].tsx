@@ -1,30 +1,19 @@
 import Category_Banner from '@/components/pageBanner/categoryBanner'
-import VideoPlayer from '@/components/video-player/VideoPlayer'
 import Card from '@/components/video-section/card'
 import apolloClient from '@/config/client'
-import { PostsByCategory } from '@/config/query'
+import { PostsByTags } from '@/config/query'
 import { SettingsContext } from '@/context/setting-context'
 import { IPost } from '@/utils/types'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
 import React, { useContext, useEffect } from 'react'
 
-const Category = ({ posts }: any) => {
-  const { name, categoryInfo, posts: { nodes } } = posts
-  const { setModelIsOpen, videoLink, setVideoLink } = useContext(SettingsContext)
+const Tags = ({ posts }: any) => {
+  const { name, posts: { nodes } } = posts
+  const { setModelIsOpen, setVideoLink } = useContext(SettingsContext)
   const OpenVideo = (link: string) => {
     setModelIsOpen(true)
     setVideoLink(link)
   }
-
-  // useEffect(()=>{
-  //   const type  = nodes[0]?.postInfo?.tmVideoUrl.includes('facebook') && 'facebook'
-  //   const d = {
-  //     link: nodes[0]?.postInfo?.tmVideoUrl,
-  //     type
-  //   }
-  //   setVideoLink(d)
-  // },[])
   
   return (
     <>
@@ -33,7 +22,8 @@ const Category = ({ posts }: any) => {
           <Category_Banner key={idx} item={item}/>
         ))
       }
-      <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 gap-4'>
+      <h2 className='container mx-auto text-3xl font-bold px-4 my-10'>{name}</h2>
+      <div className='grid grid-cols-2 container mx-auto  px-4 lg:grid-cols-4 gap-4 mb-20'>
         {
           nodes?.slice(1).map((item: IPost, idx: number) => (
             <Card item={item} key={idx} OpenVideo={OpenVideo} slug/>
@@ -44,18 +34,19 @@ const Category = ({ posts }: any) => {
   )
 }
 
-export default Category
+export default Tags
 
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug
+  
   const response = await apolloClient.query({
-    query: PostsByCategory,
+    query: PostsByTags,
     variables: {
       slug
     },
   });
-  const posts = response.data.category;
+  const posts = response.data.tag;
 
   return {
     props: {

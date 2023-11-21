@@ -192,8 +192,6 @@ export const getStaticProps: GetStaticProps = async () => {
     apolloClient.query({ query: Categories }),
     apolloClient.query({ query: programsScheduling }),
     apolloClient.query({ query: AllScholars }),
-
-
   ]);
 
   const allposts = postsResponse.data.posts.nodes;

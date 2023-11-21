@@ -144,3 +144,22 @@ body {
 .x78zum5.xdt5ytf.xl56j7k{
      display: none !important;
 }
+
+.iframe-container {
+     position: relative;
+     width: 50%;
+     padding-bottom: 48%; /* 16:9 aspect ratio (9 / 16 * 100) */
+     overflow: hidden;
+ }
+ 
+ /* Iframe within the container */
+ .iframe-container iframe {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+ #u_0_4_am{
+     padding-bottom: 56.25% !important;
+ }

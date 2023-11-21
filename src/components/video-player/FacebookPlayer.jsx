@@ -23,14 +23,14 @@ const FacebookVideoPlayer = () => {
 
      var link = videoLink?.link?.toString()?.replace("https://www.facebook.com/watch/?v=", "")
      return (
-          <div>
+          <div className='w-[70%] mx-auto'>
                <FacebookPlayer
                     videoId={link}
                     appId="1731606113949263"
                     onReady={onReady}
-
                />
           </div>
+
      )
 }
 
