@@ -29,7 +29,7 @@ const Category = ({ posts, slug }: any) => {
 
   return (
     <>
-      <SeoMeta title={`${slug}  | Paigham TV`} url={`/slug/${slug}`} description="Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah " />
+      <SeoMeta title={`${slug}  | Paigham TV`} url={`/category/${slug}`} description="Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah " />
 
       {
         nodes?.slice(0, 1).map((item: IPost, idx: number) => (

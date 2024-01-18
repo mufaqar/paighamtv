@@ -66,7 +66,7 @@ export default function Program_Scheduling({ allProgramsScheduling }: any) {
     return (
         <>
         
-        <SeoMeta title="Program Scheduling | Paigham TV" url="/program-scheduling" description="Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah and promoting religious awareness world wide" />
+        <SeoMeta title="Program Scheduling | Paigham TV" url="/program-scheduling" description="Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah" />
  
 
             <PageBanner title="Program Scheduling" image="/images/banner2.jpg" />

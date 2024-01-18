@@ -9,7 +9,7 @@ import SeoMeta from '@/components/seo'
 const Scholar = ({ allScholars }: any) => {
   return (
     <>
-      <SeoMeta title="Scholar | Paigham TV" url="/scholars" description="Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah and promoting religious awareness world wide" />
+      <SeoMeta title="Scholars of Paigham TV | Paigham TV" url="/scholars" description="Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah " />
       <PageBanner title="Scholar" image="/images/banner-2.jpg" />
       <div className='grid container mx-auto my-20 grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 px-4 '>
         {

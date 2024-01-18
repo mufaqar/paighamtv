@@ -10,7 +10,7 @@ import SeoMeta from '@/components/seo';
 export default function About_us() {
     return (
         <>
-           <SeoMeta title="About  TV | Paigham TV" url="/about-us" description="Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah and promoting religious awareness world wide" />
+           <SeoMeta title="About  TV | Paigham TV" url="/about-us" description="Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah " />
  
 
 
