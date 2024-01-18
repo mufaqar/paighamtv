@@ -10,6 +10,7 @@ import { SettingsContext } from '@/context/setting-context'
 import React, { useContext } from 'react'
 import VideoPlayer from '@/components/video-player/VideoPlayer'
 import { getVideoCode } from '../../utils'
+import SeoMeta from '@/components/seo';
 
 
 
@@ -21,6 +22,8 @@ const PaighamChannelPresents = ({ programs }: any) => {
     }
 
     return (
+
+        
         <section className='bg-white'>
             <div className='container font-metapro mx-auto px-4 text-primary py-16'>
                 <h2 className=' text-3xl text-center md:text-5xl font-bold'>Paigham Channel Presents</h2>
@@ -62,27 +65,9 @@ export default function Program_Scheduling({ allProgramsScheduling }: any) {
 
     return (
         <>
-            <Helmet>
-                <title>Program Scheduling - Paigham TV</title>
-                <meta name="description" content="Paigham TV is an Islamic educational channel television network. It launched its Urdu language TV channel in 2011. The production of this channel is based on the teachings of Quran o Sunnah. A team of Islamic scholars monitors the material presented on its programs. Each program of Paigham TV is previewed according to authentic references of Quran o Hadees." />
-                <link rel="canonical" href="https://paigham.tv/" />
-                <meta property="og:locale" content="en_US" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="Home - Paigham TV" />
-                <meta property="og:description" content="Paigham TV is an Islamic educational channel television network. It launched its Urdu language TV channel in 2011. The production of this channel is based on the teachings of Quran o Sunnah. A team of Islamic scholars monitors the material presented on its programs. Each program of Paigham TV is previewed according to authentic references of Quran o Hadees." />
-                <meta property="og:url" content="https://paigham.tv/" />
-                <meta property="og:site_name" content="Paigham TV" />
-                <meta property="article:publisher" content="https://web.facebook.com/paighamtv" />
-                <meta property="article:modified_time" content="2023-05-14T04:41:56+00:00" />
-                <meta property="og:image" content="https://paigham.tv/wp-content/uploads/2018/09/paigham-tv-logo-img.jpg" />
-                <meta property="og:image:width" content="960" />
-                <meta property="og:image:height" content="960" />
-                <meta property="og:image:type" content="image/jpeg" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@paighamtv" />
-                <meta name="twitter:label1" content="Est. reading time" />
-                <meta name="twitter:data1" content="2 minutes" />
-            </Helmet>
+        
+        <SeoMeta title="Program Scheduling | Paigham TV" url="/program-scheduling" description="Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah and promoting religious awareness world wide" />
+ 
 
             <PageBanner title="Program Scheduling" image="/images/banner2.jpg" />
             {/* Categories section  */}

@@ -1,4 +1,5 @@
 import PageBanner from '@/components/pageBanner/PageBanner'
+import SeoMeta from '@/components/seo'
 import Card from '@/components/video-section/card'
 import apolloClient from '@/config/client'
 import { PostsByScholar } from '@/config/query'
@@ -12,8 +13,6 @@ const SingleScholar = ({ posts, slug }: any) => {
   // const { name, posts: { nodes } } = posts
 
 
-  console.log(posts);
-
   const { setModelIsOpen, setVideoLink } = useContext(SettingsContext)
   const OpenVideo = (link: string) => {
     setModelIsOpen(true)
@@ -22,7 +21,9 @@ const SingleScholar = ({ posts, slug }: any) => {
 
   return (
     <>
-      {<PageBanner title={slug} image="/images/banner2.jpg" />}
+    <SeoMeta title= {`${slug}  | Paigham TV`} url={`/scholars/${slug}`} description="Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah " />
+ 
+      <PageBanner title={slug} image="/images/banner2.jpg" />
       <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 gap-4'>
         {
           posts?.map((item: IPost, idx: number) => (

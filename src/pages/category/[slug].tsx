@@ -1,4 +1,5 @@
 import Category_Banner from '@/components/pageBanner/categoryBanner'
+import SeoMeta from '@/components/seo'
 import VideoPlayer from '@/components/video-player/VideoPlayer'
 import Card from '@/components/video-section/card'
 import apolloClient from '@/config/client'
@@ -9,7 +10,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import React, { useContext, useEffect } from 'react'
 
-const Category = ({ posts }: any) => {
+const Category = ({ posts, slug }: any) => {
   const { name, categoryInfo, posts: { nodes } } = posts
   const { setModelIsOpen, videoLink, setVideoLink } = useContext(SettingsContext)
   const OpenVideo = (link: string) => {
@@ -25,18 +26,20 @@ const Category = ({ posts }: any) => {
   //   }
   //   setVideoLink(d)
   // },[])
-  
+
   return (
     <>
+      <SeoMeta title={`${slug}  | Paigham TV`} url={`/slug/${slug}`} description="Paigham TV is a satellite TV channel the objectives of which are preaching the true teachings of the Holy Quran and Sunnah " />
+
       {
-        nodes?.slice(0,1).map((item: IPost, idx: number) => (
-          <Category_Banner key={idx} item={item}/>
+        nodes?.slice(0, 1).map((item: IPost, idx: number) => (
+          <Category_Banner key={idx} item={item} />
         ))
       }
       <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 gap-4'>
         {
           nodes?.slice(1).map((item: IPost, idx: number) => (
-            <Card item={item} key={idx} OpenVideo={OpenVideo} slug/>
+            <Card item={item} key={idx} OpenVideo={OpenVideo} slug />
           ))
         }
       </div>
@@ -60,6 +63,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       posts,
+      slug
     },
   };
 }

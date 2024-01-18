@@ -30,7 +30,7 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
   return (
     <>
  
-    <SeoMeta title="Home - Paigham TV" url="/" description="Paigham TV is an Islamic educational channel television network. It launched its Urdu language TV channel in 2011. The production of this channel is based on the teachings of Quran o Sunnah. A team of Islamic scholars monitors the material presented on its programs. Each program of Paigham TV is previewed according to authentic references of Quran o Hadees." />
+    <SeoMeta title="Paigham TV | Jo Badal De Zindagi" url="/" description="Paigham TV is an Islamic educational channel television network. The production of this channel is based on the teachings of Quran o Sunnah. " />
  
       <Main posts={allposts} />
       <TabsSection allposts={allposts} allCategories={allCategories} />
