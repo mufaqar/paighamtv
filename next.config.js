@@ -2,8 +2,17 @@
 const nextConfig = {
   reactStrictMode: true,
   images:{
-    domains:['backend.paigham.tv']
-  }
+    domains:['ant.a59.mywebsitetransfer.com']
+  },
+  async redirects() {
+    return [
+      {
+        source: '/old-subdomain/:path*',
+        destination: 'http://www.newurl.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
 }
 
 module.exports = nextConfig
