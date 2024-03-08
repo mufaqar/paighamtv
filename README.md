@@ -14,3 +14,5 @@ git remote add origin https://github.com/dilawarnadeem/paigham.git
 
 
 git remote set-url origin https://github.com/dilawarnadeem/paigham.git
+
+#github
