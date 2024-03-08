@@ -54,13 +54,13 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
         </div>
       </section>
       {/* videos section  */}
-      <VideoSection allposts={allposts} allCategories={allCategories} />
+      {/* <VideoSection allposts={allposts} allCategories={allCategories} /> */}
       {/* Scholar section  */}
       <section className='container mx-auto mb-28 px-4'>
         {/* heading  */}
         <div className='flex justify-between items-center mt-20 mb-10 border-b-[3px] border-darkgray pb-5'>
           <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold'>Scholar</h2>
-          <Link href="#" className='uppercase flex hover:text-orange items-center gap-x-2 font-metapro text-xl tracking-widest font-semibold rtl:flex-row-reverse'>
+          <Link href="/scholars" className='uppercase flex hover:text-orange items-center gap-x-2 font-metapro text-xl tracking-widest font-semibold rtl:flex-row-reverse'>
             <span>View All</span>
             <HiOutlineArrowRight />
           </Link>
