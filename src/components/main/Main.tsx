@@ -18,17 +18,31 @@ const Main = ({ posts }: any) => {
   return (
     <main className='relative h-[700px]'>
       <Slider ref={slider} {...settings}>
-        {
-          [1, 2, 3].map((slide, idx) => {
-            return (
-              <div key={idx} className='relative w-full bg-[url("/images/banner.jpg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'              >
-                <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
-                  
-                </div>
-              </div>
-            )
-          })
-        }
+
+
+
+        <div className='relative w-full bg-[url("/images/banner/banner1.jpg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'>
+          <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
+          </div>
+        </div>
+        <div className='relative w-full bg-[url("/images/banner/banner2.jpeg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'>
+          <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
+          </div>
+        </div>
+        <div className='relative w-full bg-[url("/images/banner/banner3.jpeg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'>
+          <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
+          </div>
+        </div>
+        <div className='relative w-full bg-[url("/images/banner/banner4.jpeg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'>
+          <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
+          </div>
+        </div>
+        <div className='relative w-full bg-[url("/images/banner/banner5.jpeg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'>
+          <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
+          </div>
+        </div>
+
+
       </Slider>
       {/* <section className='sliceslider right-0 absolute bottom-5 2xl:bottom-10 w-full lg:w-[50%]'>
         <Slider {...SliderSlice}>
