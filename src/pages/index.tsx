@@ -40,12 +40,12 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
         {/* heading  */}
         <div className='flex justify-between items-center mt-20 mb-10 border-b-[3px] border-darkgray pb-5'>
           <h2 className='font-metapro text-3xl md:text-5xl text-darkgray font-bold'>Categories</h2>
-          <Link href="#" className='uppercase flex hover:text-orange items-center gap-x-2 font-metapro text-xl tracking-widest font-semibold rtl:flex-row-reverse'>
+          <Link href="/series" className='uppercase flex hover:text-orange items-center gap-x-2 font-metapro text-xl tracking-widest font-semibold rtl:flex-row-reverse'>
             <span>View All</span>
             <HiOutlineArrowRight />
           </Link>
         </div>
-        <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
+        <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2'>
           {
             allCategories.slice(0, 4).map((item: any, idx: any) => (
               <CategoryCard key={idx} item={item} />
