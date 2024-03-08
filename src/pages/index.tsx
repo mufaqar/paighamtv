@@ -83,7 +83,7 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
 
 // Tabs section 
 const TabsSection = ({ allposts }: any) => {
-  const [posts, setPost] = useState<any>(allposts.slice(0, 4))
+  const [posts, setPost] = useState<any>(allposts.slice(0, 3))
   const [activeCategory, setActiveCategory] = useState('tafseer-ul-quran')
   const HandleVideosCategoryTabs = (slug: string) => {
     setActiveCategory(slug)
@@ -114,7 +114,7 @@ const TabsSection = ({ allposts }: any) => {
       </div>
       {/* articles  */}
 
-      <div className='grid grid-cols-2 lg:grid-cols-4 mt-10 gap-2'>
+      <div className='grid grid-cols-2 lg:grid-cols-3 mt-10 gap-2'>
         {
           posts?.map((item: any, idx: number) => (
             <Card item={item} key={idx} OpenVideo={OpenVideo} />
