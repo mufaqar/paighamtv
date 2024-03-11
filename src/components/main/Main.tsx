@@ -16,28 +16,28 @@ const Main = ({ posts }: any) => {
     setVideoLink(link)
   }
   return (
-    <main className='relative h-[700px]'>
+    <main className='relative h-full md:h-[700px]'>
       <Slider ref={slider} {...settings}>
 
 
 
-        <div className='relative w-full bg-[url("/images/banner/banner1.jpg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'>
+        <div className='relative w-full bg-[url("/images/banner/banner1.jpg")] p-2 h-[calc(100vh-40px)] bg-cover md:bg-contain bg-no-repeat'>
           <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
           </div>
         </div>
-        <div className='relative w-full bg-[url("/images/banner/banner2.jpeg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'>
+        <div className='relative w-full bg-[url("/images/banner/banner2.jpeg")] p-2 h-[calc(100vh-40px)] bg-cover md:bg-contain bg-no-repeat'>
           <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
           </div>
         </div>
-        <div className='relative w-full bg-[url("/images/banner/banner3.jpeg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'>
+        <div className='relative w-full bg-[url("/images/banner/banner3.jpeg")] p-2 h-[calc(100vh-40px)] bg-cover md:bg-contain bg-no-repeat'>
           <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
           </div>
         </div>
-        <div className='relative w-full bg-[url("/images/banner/banner4.jpeg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'>
+        <div className='relative w-full bg-[url("/images/banner/banner4.jpeg")] p-2 h-[calc(100vh-40px)] bg-cover md:bg-contain bg-no-repeat'>
           <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
           </div>
         </div>
-        <div className='relative w-full bg-[url("/images/banner/banner5.jpeg")] p-2 h-[calc(100vh-40px)] bg-contain bg-no-repeat'>
+        <div className='relative w-full bg-[url("/images/banner/banner5.jpeg")] p-2 h-[calc(100vh-40px)] bg-cover md:bg-contain bg-no-repeat'>
           <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
           </div>
         </div>
