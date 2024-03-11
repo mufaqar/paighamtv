@@ -25,7 +25,7 @@ export default ChannelLinks
 const navButons = [
   {
     name: 'TV Urdu',
-    link: 'https://www.youtube.com/channel/UCi-vOBG7Jgk_nKAG1Zd0R5g/live',
+    link: 'http://live.paigham.tv',
     icon: '/images/tv_icon.png',
     live: '/images/live.png'
   },
