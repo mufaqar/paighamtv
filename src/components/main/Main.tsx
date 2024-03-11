@@ -21,7 +21,7 @@ const Main = ({ posts }: any) => {
 
 
 
-        <div className='relative w-full bg-[url("/images/banner/banner1.jpg")] p-2 h-[calc(100vh-40px)] bg-cover md:bg-contain bg-no-repeat'>
+        <div className='relative w-full bg-[url("/images/banner/banner1.jpg")] p-2 h-[calc(100vh-40px)]  bg-cover md:bg-contain bg-no-repeat'>
           <div className='container mx-auto text-white font-metapro h-full lg:px-16 2xl:px-0 flex flex-col items-center md:items-start justify-center'>
           </div>
         </div>
