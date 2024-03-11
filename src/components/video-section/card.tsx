@@ -41,7 +41,7 @@ const Card = ({ item, OpenVideo, slug }: any) => {
                          </div>
 
                     </div>
-                    <h4 className='text-white md:text-lg font-medium md:px-2 text-center tracking-wide my-3'>{title}--{item?.postInfo?.tmVideoUrl}</h4>
+                    <h4 className='text-white md:text-lg font-medium md:px-2 text-center tracking-wide my-3'>{title}</h4>
                </div>
 
 
