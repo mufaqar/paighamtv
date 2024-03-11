@@ -215,10 +215,17 @@ export const PostsByScholar = gql`
       nodes {
         title
         content
+        postInfo {
+          tmVideoUrl
+          urduTitle
+          arabicTitle
+        }
         featuredImage {
           node {
             mediaItemUrl
           }
+          
+          
         }
       }
     }
