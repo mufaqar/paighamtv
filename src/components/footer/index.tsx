@@ -23,7 +23,7 @@ const Footer = () => {
                               </div>
                          </div>
                     </div>
-                    <div className='grid grid-cols-4 md:grid-cols-5 font-metapro gap-6 mt-16 pt-12 border-t-[1px] border-gray-500'>
+                    <div className='grid grid-cols-1 md:grid-cols-5 font-metapro gap-6 mt-16 pt-12 border-t-[1px] border-gray-500'>
                          <Logo />
                          {
                               footerNav.map((item, idx) => {
