@@ -6,7 +6,6 @@ import { SettingsContext } from '@/context/setting-context'
 
 
 const Card = ({ item, OpenVideo, slug }: any) => {
-     console.log("🚀 ~ Card ~ item:", item)
      const { language, setVideoLink } = useContext(SettingsContext)
      var title = item.title
      if (language === 'ar') {
@@ -33,7 +32,6 @@ const Card = ({ item, OpenVideo, slug }: any) => {
                                         <PiPlay size={28} />
                                    </button> : <button onClick={() => OpenVideo(getVideoCode(item?.postInfo?.tmVideoUrl))} className='bg-secondary opacity-75 hover:scale-105 p-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'>
                                         <PiPlay size={28} />
-                                      
                                    </button>
                                   
                               }

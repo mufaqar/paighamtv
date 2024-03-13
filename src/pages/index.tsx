@@ -27,6 +27,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({ allposts, allCategories, allProgramsScheduling, Scholars }: any) {
 
+  const { setModelIsOpen, setVideoLink } = useContext(SettingsContext)
+  const OpenVideo = (link: string) => {
+    setModelIsOpen(true)
+    setVideoLink(link)
+  }
+
   return (
     <>
  
@@ -34,7 +40,7 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
  
       <Main posts={allposts} />
       <TabsSection allposts={allposts} allCategories={allCategories} />
-      <PaighamChannelPresents programs={allProgramsScheduling} />
+      <PaighamChannelPresents programs={allProgramsScheduling} OpenVideo={OpenVideo} />
       {/* Categories section  */}
       <section className='container mx-auto mb-28 px-4'>
         {/* heading  */}
@@ -127,7 +133,7 @@ const TabsSection = ({ allposts }: any) => {
 }
 
 // Paigham Channel Presents
-const PaighamChannelPresents = ({ programs }: any) => {
+const PaighamChannelPresents = ({ programs, OpenVideo }: any) => {
   const { setVideoLink } = useContext<any>(SettingsContext)
 
   const handleLink = (link: string) => {
@@ -139,20 +145,20 @@ const PaighamChannelPresents = ({ programs }: any) => {
       <div className='container font-metapro mx-auto px-4 text-white py-16'>
         <h2 className=' text-3xl text-center md:text-5xl font-bold'>Paigham Channel Presents</h2>
         <div className='md:flex mt-10 md:gap-x-10 '>
-          <div className='md:w-[60%]'>
-            <VideoPlayer />
-          </div>
-          <div className="md:w-[40%] mt-5 md:mt-0">
+          <div className="md:w-full mt-5 md:mt-0">
             {/* top headings  */}
             <div className='font-semibold flex justify-between text-xl tracking-widest item-center'>
               <h5>TODAY'S GUIDE</h5>
               <Link href="/program-scheduling"><h5 className='text-secondary'>FULL GUIDE</h5></Link>
             </div>
-            <ul className='mt-5 '>
+            <ul className='mt-5'>
               {
                 programs.map((item: any, idx: number) => (
-                  <li key={idx} className='flex justify-between gap-x-6 md:gap-x-16 border-t-[1px] border-gray-500 py-5'>
-                    <time className='font-medium text-xl'>{item?.programInfo?.programTime || `0000`}</time>
+                  <li key={idx} className='flex md:flex-row flex-col items-start gap-6 lg:gap-x-12 border-t-[1px] border-gray-500 py-5'>
+                    <time className='font-medium text-xl whitespace-nowrap'>{item?.programInfo?.programTime || `0000`}</time>
+                    <button className="bg-black/80 min-w-[240px] flex justify-center items-center min-h-[120px] group">
+                        <Image src="/images/ytbutton.png" alt="icon" onClick={() => OpenVideo(getVideoCode(item?.programInfo?.videoUrl))} width={80} height={40} className='group-hover:scale-105 transition-all duration-200 ease-linear'/>
+                    </button>
                     <button onClick={() => handleLink(getVideoCode(item?.programInfo?.videoUrl))}>
                       <h6 className='text-secondary text-xl font-medium text-start -tracking-wide'>{item.title}</h6>
                       <div className='text-start text-lg mt-2' dangerouslySetInnerHTML={{ __html: item?.excerpt }} />
