@@ -149,6 +149,26 @@ export const Categories = gql`
             mediaItemUrl
           }
         }
+        posts(first: 1000) {
+          nodes {
+            title
+            slug
+            featuredImage {
+              node {
+                mediaItemUrl
+              }
+            }
+            categories {
+              nodes {
+                slug
+                name
+              }
+            }
+            postInfo {
+              tmVideoUrl
+            }
+          }
+        }
       }
     }
   }

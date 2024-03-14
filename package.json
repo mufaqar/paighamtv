@@ -37,6 +37,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/google-map-react": "^2.1.7",
     "@types/react-helmet": "^6.1.6",
     "@types/react-modal": "^3.16.0",

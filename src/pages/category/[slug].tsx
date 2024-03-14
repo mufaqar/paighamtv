@@ -18,6 +18,7 @@ const Category = ({ posts, slug }: any) => {
     setVideoLink(link)
   }
 
+
   // useEffect(()=>{
   //   const type  = nodes[0]?.postInfo?.tmVideoUrl.includes('facebook') && 'facebook'
   //   const d = {
@@ -38,7 +39,7 @@ const Category = ({ posts, slug }: any) => {
       }
       <div className='grid grid-cols-2 container mx-auto my-20 px-4 lg:grid-cols-4 gap-4'>
         {
-          nodes?.slice(1).map((item: IPost, idx: number) => (
+          nodes?.slice(0).reverse().map((item: IPost, idx: number) => (
             <Card item={item} key={idx} OpenVideo={OpenVideo} slug />
           ))
         }
