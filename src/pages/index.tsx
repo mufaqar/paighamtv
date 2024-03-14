@@ -13,7 +13,7 @@ import VideoPlayer from '@/components/video-player/VideoPlayer'
 import { getVideoCode } from '../utils'
 import { SettingsContext } from '@/context/setting-context'
 import React, { useContext } from 'react'
-import {category } from '../../public/data'
+import { category } from '../../public/data'
 import { IScholorType } from '@/utils/types'
 import { Helmet } from 'react-helmet';
 import apolloClient from '@/config/client'
@@ -35,9 +35,9 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
 
   return (
     <>
- 
-    <SeoMeta title="Paigham TV | Jo Badal De Zindagi" url="/" description="Paigham TV is an Islamic educational channel television network. The production of this channel is based on the teachings of Quran o Sunnah. " />
- 
+
+      <SeoMeta title="Paigham TV | Jo Badal De Zindagi" url="/" description="Paigham TV is an Islamic educational channel television network. The production of this channel is based on the teachings of Quran o Sunnah. " />
+
       <Main posts={allposts} />
       <TabsSection allposts={allposts} allCategories={allCategories} />
       <PaighamChannelPresents programs={allProgramsScheduling} OpenVideo={OpenVideo} />
@@ -53,9 +53,19 @@ export default function Home({ allposts, allCategories, allProgramsScheduling, S
         </div>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2'>
           {
-            allCategories.slice(0, 4).map((item: any, idx: any) => (
-              <CategoryCard key={idx} item={item} />
-            ))
+            allCategories.slice(0, 4).map((item: any, idx: any) => {
+              const featued_image = item?.categoryInfo?.catImage?.mediaItemUrl;
+              return (
+                <div className='bg-red-300 relative group overflow-hidden rounded-xl' key={idx}>
+                  <Link href={`/category/${item.slug}`} ><Image src={featued_image} alt="image" width={700} height={700} className='w-full object-cover h-[420px] transition-all duration-200 ease-in-out group-hover:scale-105' />
+                    <div className='bg-gradient-to-t from-primary absolute inset-0 p-6 flex flex-col justify-end font-metapro to-black/0'>
+                      <h4 className='text-white text-2xl font-semibold tracking-wide'>{item.name}</h4>
+                      <p className='text-orange font-medium text-lg'>{item.count} Shows</p>
+                    </div>
+                  </Link>
+                </div>
+              )
+            })
           }
         </div>
       </section>
@@ -101,7 +111,7 @@ const TabsSection = ({ allposts }: any) => {
     setModelIsOpen(true)
     setVideoLink(link)
   }
-  
+
   return (
     <section className="container mx-auto pt-20 px-4">
       {/* top header  */}
@@ -157,7 +167,7 @@ const PaighamChannelPresents = ({ programs, OpenVideo }: any) => {
                   <li key={idx} className='flex md:flex-row flex-col items-start gap-6 lg:gap-x-12 border-t-[1px] border-gray-500 py-5'>
                     <time className='font-medium text-xl whitespace-nowrap'>{item?.programInfo?.programTime || `0000`}</time>
                     <button className="bg-black/80 min-w-[240px] flex justify-center items-center min-h-[120px] group">
-                        <Image src="/images/ytbutton.png" alt="icon" onClick={() => OpenVideo(getVideoCode(item?.programInfo?.videoUrl))} width={80} height={40} className='group-hover:scale-105 transition-all duration-200 ease-linear'/>
+                      <Image src="/images/ytbutton.png" alt="icon" onClick={() => OpenVideo(getVideoCode(item?.programInfo?.videoUrl))} width={80} height={40} className='group-hover:scale-105 transition-all duration-200 ease-linear' />
                     </button>
                     <button onClick={() => handleLink(getVideoCode(item?.programInfo?.videoUrl))}>
                       <h6 className='text-secondary text-xl font-medium text-start -tracking-wide'>{item.title}</h6>
